@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ ! -d ~/.nvm ]; then
+  cd ~/
+  git clone https://github.com/creationix/nvm.git .nvm
+  cd ~/.nvm
+  git checkout v0.33.11
+fi
+
+brew install git fzf tmux reattach-to-user-namespace vim neovim rbenv pyenv

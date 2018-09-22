@@ -1,0 +1,24 @@
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Edit the current command with Esc v
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '\C-x\C-e' edit-command-line
+
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+
+# Added primarily for fastlane (https://fastlane.tools/)
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+export PATH="$HOME/.rbenv/bin:/usr/local/bin:$PATH"
+eval "$(rbenv init -)"
+
+eval "$(pyenv init -)"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+autoload -U add-zsh-hook
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc

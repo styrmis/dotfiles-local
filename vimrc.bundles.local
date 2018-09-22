@@ -1,0 +1,49 @@
+Plug 'craigemery/vim-autotag'
+
+Plug 'jgdavey/tslime.vim'
+
+Plug 'sjl/gundo.vim'
+
+Plug 'tpope/vim-haml'
+
+Plug 'mattn/emmet-vim'
+
+Plug 'tpope/vim-dispatch'
+Plug 'mrkn/vim-cruby'
+
+Plug 'airblade/vim-gitgutter'
+
+Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
+
+Plug 'junegunn/vim-easy-align'
+
+" To get the 'yo' alias, which enables paste mode for one insert only
+Plug 'tpope/vim-unimpaired'
+
+Plug 'styrmis/molokai'
+
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'benmills/vimux'
+
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/syntastic'
+Plug 'ervandew/supertab'
+Plug 'easymotion/vim-easymotion'
+Plug 'bronson/vim-trailing-whitespace'
+
+Plug 'haya14busa/incsearch.vim'
+Plug 'vim-scripts/greplace.vim'
+
+Plug 'machakann/vim-highlightedyank'
+
+Plug 'mileszs/ack.vim'
+
+Plug 'nvie/vim-flake8'
+
+" Vim text objects for Ruby blocks
+Plug 'kana/vim-textobj-user'
+Plug 'nelstrom/vim-textobj-rubyblock'
+
+Plug 'wikitopian/hardmode'
+
+Plug 't9md/vim-ruby-xmpfilter'

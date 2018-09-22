@@ -1,0 +1,29 @@
+[core]
+  editor = /usr/local/bin/nvim
+  excludesfile = ~/.gitignore
+  pager = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
+[init]
+  templatedir = ~/.git_template
+[push]
+  default = simple
+[color]
+  ui = auto
+[alias]
+  branches = for-each-ref --sort=-committerdate --format=\"%(color:blue)%(authordate:relative)\t%(color:red)%(authorname)\t%(color:white)%(color:bold)%(refname:short)\" refs/remotes
+  ci = commit -v
+  co = checkout
+  st = status
+  po = "!git push -u origin \"$(git rev-parse --abbrev-ref HEAD)\""
+  dc = diff --cached
+  aa = add --all
+  ctags = !.git/hooks/ctags
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[include]
+  path = ~/.gitidentity.local
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+[commit]
+  verbose = true

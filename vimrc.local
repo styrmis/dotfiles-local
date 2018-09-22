@@ -1,0 +1,173 @@
+" Shortcut to refer to the directory of the current file
+" From https://www.destroyallsoftware.com/file-navigation-in-vim.html
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+
+au BufNewFile,BufRead *.py
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix
+
+au BufNewFile,BufRead *.html
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix
+
+" Exclude Javascript files in :Rtags via rails.vim due to warnings when parsing
+let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
+
+" Index ctags from any project, including those outside Rails
+map <Leader>ct :!ctags -R .<CR>
+
+let test#strategy = "tslime"
+let g:test#preserve_screen = 1
+
+let test#ruby#rspec#options = {
+  \ 'nearest': '',
+  \ 'file':    '',
+  \ 'suite':   '--fail-fast',
+\}
+
+" By default assume that we want to target the current window in the current
+" session for tslime commands, like test runs
+
+let g:tslime_always_current_session=1
+let g:tslime_always_current_window=1
+let g:tmux_panenumber=2
+
+" Prompt for a command to run
+map <Leader>vp :VimuxPromptCommand<CR>
+
+" Run last command executed by VimuxRunCommand
+map <Leader>vl :VimuxRunLastCommand<CR>
+
+" Inspect runner pane
+map <Leader>vi :VimuxInspectRunner<CR>
+
+" Zoom the tmux runner pane
+map <Leader>vz :VimuxZoomRunner<CR>
+
+" Run undercover
+nmap <Leader>u :Tmux bundle exec undercover<CR>
+nmap <Leader>um :Tmux bundle exec undercover -c master<CR>
+
+" configure syntastic syntax checking to check on open as well as save
+let g:syntastic_check_on_open=1
+let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
+let g:syntastic_eruby_ruby_quiet_messages =
+    \ {"regex": "possibly useless use of a variable in void context"}
+let g:syntastic_ruby_checkers = [ 'rubocop' ]
+
+" vim-ruby customisation
+
+
+" Highlight Ruby operators
+let ruby_operators = 1
+
+let ruby_indent_block_style = 'do'
+
+" vim-fold-rspec customisation
+
+let g:fold_rspec_foldlevel = 3       " sets initial open/closed state of all folds (open unless nested more than two levels deep)
+let g:fold_rspec_foldcolumn = 4      " shows a 4-character column on the lefthand side of the window displaying the document's fold structure
+let g:fold_rspec_foldminlines = 3    " disables closing of folds containing two lines or fewer
+
+" Two settings to (potentially) aid in keeping the UI responsive, e.g. when
+" scrolling
+set ttyfast
+set lazyredraw
+
+" Use the old vim regex engine (version 1, as opposed to version 2, which was
+" introduced in Vim 7.3.969). The Ruby syntax highlighting is significantly
+" slower with the new regex engine.
+set re=1
+
+" Colour scheme
+let g:molokai_original=0
+let g:rehash256 = 1
+colorscheme molokai
+
+" Ruby mode for .thor and .etl files
+au BufRead,BufNewFile *.thor set filetype=ruby
+au BufNewFile,BufRead *.etl set filetype=ruby
+au BufNewFile,BufRead *.jbuilder set filetype=ruby
+au BufNewFile,BufRead *.axlsx set filetype=ruby
+
+" automatically rebalance windows on vim resize
+autocmd VimResized * :wincmd =
+
+" zoom a vim pane, <C-w>= to re-balance
+nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
+nnoremap <leader>= :wincmd =<cr>
+
+" jk in rapid succession will bring you out of insert mode
+inoremap jk <esc>
+inoremap kj <esc>
+
+cnoremap jk <c-c>
+cnoremap kj <c-c>
+
+vnoremap v <esc>
+
+" Quick save shortcut
+noremap <Leader>f :update<CR>
+
+" Quick tab switching
+nnoremap H gT
+nnoremap L gt
+
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+" Toggle hard mode
+nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
+
+" Set up Seeing is Believing
+let g:xmpfilter_cmd = "seeing_is_believing"
+
+autocmd FileType ruby nmap <buffer> <leader>m <Plug>(seeing_is_believing-mark)
+autocmd FileType ruby xmap <buffer> <leader>m <Plug>(seeing_is_believing-mark)
+
+autocmd FileType ruby nmap <buffer> <leader>c <Plug>(seeing_is_believing-clean)
+autocmd FileType ruby xmap <buffer> <leader>c <Plug>(seeing_is_believing-clean)
+
+autocmd FileType ruby nmap <buffer> <leader>r <Plug>(seeing_is_believing-run)
+autocmd FileType ruby xmap <buffer> <leader>r <Plug>(seeing_is_believing-run)
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" PROMOTE VARIABLE TO RSPEC LET
+" https://github.com/garybernhardt/dotfiles/blob/master/.vimrc#L202
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! PromoteToLet()
+  :normal! dd
+  " :exec '?^\s*it\>'
+  :normal! P
+  :.s/\(\w\+\) = \(.*\)$/let(:\1) { \2 }/
+  :normal ==
+endfunction
+:command! PromoteToLet :call PromoteToLet()
+:map <leader>p :PromoteToLet<cr><Paste>
+
+" Configure custom shortcuts for moving between git hunks
+nmap ]h <Plug>GitGutterNextHunk
+nmap [h <Plug>GitGutterPrevHunk
+
+set updatetime=100
+
+map y <Plug>(highlightedyank)
+
+" taskwiki configuration
+let g:taskwiki_sort_orders={"D": "description+"}

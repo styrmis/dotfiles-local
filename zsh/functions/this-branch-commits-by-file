@@ -1,0 +1,3 @@
+function this-branch-commits-by-file() {
+  git diff --name-only master..head | while read file_path; do echo $file_path && git rev-list --reverse master..head -- $file_path | while read sha; do echo $(git rev-list --count master..$sha) ': ' $(git show --pretty=oneline -s --abbrev-commit $sha); done && echo; done
+}

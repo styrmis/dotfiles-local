@@ -1,0 +1,36 @@
+# Unix
+
+alias grep="grep --color=auto -I"
+alias pbcopy="tr -d '\n' | pbcopy"
+alias top="top -o cpu"
+
+# Git
+
+# http://codeinthehole.com/writing/tips-for-using-a-git-pre-commit-hook/
+alias gc="git commit"
+alias gcnv="git commit --no-verify"
+
+alias gs="git status"
+alias gb="git branch -vv --sort=committerdate"
+alias gbd="git branch -d"
+alias gd="git diff"
+alias gdc="git diff --cached"
+alias gco="git checkout"
+
+alias gfp="git fetch -p"
+alias gp="git pull"
+alias gfpp="git fetch -p && git pull"
+
+alias ggone="git branch -vv | grep ': gone' | cut -c 3- | awk '{ print \$1 }'"
+
+alias grc="git rebase --continue"
+
+# Bundler
+
+alias be="bundle exec"
+
+# Take a screenshot directly from a running iOS simulator
+alias take_simulator_screenshot="xcrun simctl io booted screenshot"
+
+# Update Rubygems for all installed Rubies, except system
+alias update_all_rubygems="rbenv versions | grep -v system | while read ver; do rbenv shell $ver; ruby -v; gem update --system; rbenv shell --unset; done"

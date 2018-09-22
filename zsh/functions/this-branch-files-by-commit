@@ -1,0 +1,3 @@
+function this-branch-files-by-commit {
+  git rev-list --reverse master..head | while read sha; do git show -s --oneline $sha && git diff --name-only $sha $sha~ && echo; done
+}

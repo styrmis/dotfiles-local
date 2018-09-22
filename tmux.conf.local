@@ -1,0 +1,73 @@
+# Prerequisites
+#
+#  * brew install fzf reattach-to-user-namespace
+
+# don't truncate the session name
+set-option -g status-left-length 50
+
+# easy config file reloading
+bind-key r source-file ~/.tmux.conf \; display-message "~/.tmux.conf reloaded"
+
+# smart pane switching with awareness of vim splits
+# https://github.com/christoomey/vim-tmux-navigator
+is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
+    | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?)(diff)?$'"
+bind-key -n C-h if-shell "$is_vim" "send-keys C-h"  "select-pane -L"
+bind-key -n C-j if-shell "$is_vim" "send-keys C-j"  "select-pane -D"
+bind-key -n C-k if-shell "$is_vim" "send-keys C-k"  "select-pane -U"
+bind-key -n C-l if-shell "$is_vim" "send-keys C-l"  "select-pane -R"
+bind-key -n C-\ if-shell "$is_vim" "send-keys C-\\" "select-pane -l"
+bind-key -T copy-mode-vi C-h select-pane -L
+bind-key -T copy-mode-vi C-j select-pane -D
+bind-key -T copy-mode-vi C-k select-pane -U
+bind-key -T copy-mode-vi C-l select-pane -R
+bind-key -T copy-mode-vi C-\ select-pane -l
+
+# more convenient split window bindings
+# also passes current path to new pane to preserve context
+bind-key - split-window -v -c '#{pane_current_path}'
+bind-key \ split-window -h -c '#{pane_current_path}'
+
+# for the status bar, use emacs/shell-like key bindings
+set-option -g status-keys "emacs"
+
+# pane resizing
+bind -n S-Left resize-pane -L 5
+bind -n S-Right resize-pane -R 5
+bind -n S-Down resize-pane -D 2
+bind -n S-Up resize-pane -U 2
+
+# rebind window creation to respect current path
+bind c new-window -c '#{pane_current_path}'
+
+# break pane binding to break panes out to their own window
+bind-key b break-pane -d
+
+# interactive session switching
+# Note: replaced by the fuzzy matching below
+# bind-key C-j choose-tree
+
+# fuzzy session switching
+bind C-j split-window -v "tmux list-sessions | sed -E 's/:.*$//' | grep -v \"^$(tmux display-message -p '#S')\$\" | fzf --reverse | xargs tmux switch-client -t"
+
+# copy and paste, with OSX support
+# Use vim keybindings in copy mode
+setw -g mode-keys vi
+
+# setup 'v' to begin selection as in Vim
+bind-key -Tcopy-mode-vi v send -X begin-selection
+bind-key -Tcopy-mode-vi y send -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
+
+# By default, send all shell commands to reattach to the user namespace, so
+# that commands like 'open' will work as expected on OSX
+set -g default-command "reattach-to-user-namespace -l ${SHELL}"
+
+# fuzzy session switching
+bind C-j split-window -v "tmux list-sessions | sed -E 's/:.*$//' | grep -v \"^$(tmux display-message -p '#S')\$\" | fzf --reverse | xargs tmux switch-client -t"
+
+# kill current session - without this, exiting from a session will simply exit
+# tmux, which is not what we want.
+bind-key K run-shell 'tmux switch-client -n \; kill-session -t "$(tmux display-message -p "#S")" || tmux kill-session'
+
+# Reduce timeout for escape key to avoid delays in vim
+set -g escape-time 10
