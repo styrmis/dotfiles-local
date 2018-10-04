@@ -351,6 +351,12 @@ If FILEXT is provided, return files with extension FILEXT instead."
   (setq org-agenda-files
         (append (sa-find-org-file-recursively "~/Dropbox/org/" "org")))
 
+  (setq org-capture-templates
+        '(("t" "Todo" entry (file+headline "~/Dropbox/org/gtd.org" "Tasks")
+           "* TODO %?\n  %i\n  %a")
+          ("j" "Journal" entry (file+olp+datetree "~/Dropbox/org/journal.org")
+           "* %?\nEntered on %U\n  %i\n  %a")))
+
   (use-package org-super-agenda :config (org-super-agenda-mode))
 
   (setq org-agenda-custom-commands
