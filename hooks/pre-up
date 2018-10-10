@@ -7,4 +7,4 @@ if [ ! -d ~/.nvm ]; then
   git checkout v0.33.11
 fi
 
-brew install git fzf tmux reattach-to-user-namespace vim neovim rbenv pyenv
+brew install git fzf tmux reattach-to-user-namespace vim neovim rbenv pyenv the_silver_searcher
