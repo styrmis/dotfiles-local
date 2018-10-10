@@ -27,3 +27,5 @@
   required = true
 [commit]
   verbose = true
+[credential]
+  helper = osxkeychain
