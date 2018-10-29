@@ -18,6 +18,7 @@
   aa = add --all
   ctags = !.git/hooks/ctags
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  tbcf = log master..head --pretty=oneline --abbrev-commit --name-status
 [include]
   path = ~/.gitidentity.local
 [filter "lfs"]
