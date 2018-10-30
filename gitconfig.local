@@ -14,6 +14,7 @@
   co = checkout
   st = status
   po = "!git push -u origin \"$(git rev-parse --abbrev-ref HEAD)\""
+  pf = push --force-with-lease
   dc = diff --cached
   aa = add --all
   ctags = !.git/hooks/ctags
