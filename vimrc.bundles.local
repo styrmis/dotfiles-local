@@ -17,9 +17,6 @@ Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 
 Plug 'junegunn/vim-easy-align'
 
-" To get the 'yo' alias, which enables paste mode for one insert only
-Plug 'tpope/vim-unimpaired'
-
 Plug 'styrmis/molokai'
 
 Plug 'christoomey/vim-tmux-navigator'
