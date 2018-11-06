@@ -1,10 +1,6 @@
 set incsearch nohlsearch " do incremental searching without residual highlighting
 set smartcase     " Case insensitive searches, until an uppercase letter is typed
 
-" Turn off 'expensive' rendering options such as alternative colouring for the
-" `end` keyword
-let ruby_no_expensive = 1
-
 " Shortcut to refer to the directory of the current file
 " From https://www.destroyallsoftware.com/file-navigation-in-vim.html
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
