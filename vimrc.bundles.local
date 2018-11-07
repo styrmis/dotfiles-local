@@ -43,3 +43,5 @@ Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'wikitopian/hardmode'
 
 Plug 't9md/vim-ruby-xmpfilter'
+
+Plug 'editorconfig/editorconfig-vim'
