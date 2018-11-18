@@ -5,7 +5,7 @@ function this-branch-commits-by-file() {
 
     git rev-list --reverse master..head -- $file_path |
     while read sha; do
-      echo $(git rev-list --count master..$sha) ': ' $(git show --pretty=oneline -s --abbrev-commit $sha)
+      echo $(git rev-list --count master..$sha) ': ' $(git show --oneline --no-patch $sha)
     done
 
     echo
