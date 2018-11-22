@@ -182,4 +182,6 @@ let g:taskwiki_sort_orders={"D": "description+"}
 " Recommended configuration for EditorConfig
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
+let g:sneak#label = 1
+
 com! FormatXML :%!python3 -c "import xml.dom.minidom, sys; print(xml.dom.minidom.parse(sys.stdin).toprettyxml())"
