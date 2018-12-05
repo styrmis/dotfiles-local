@@ -25,3 +25,6 @@ autoload -U zmv
 autoload -U add-zsh-hook
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
+
+# Include hyperlocal machine-specific configuration
+[[ -f ~/.zshrc.local.machine ]] && source ~/.zshrc.local.machine
