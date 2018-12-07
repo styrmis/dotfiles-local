@@ -184,4 +184,8 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 let g:sneak#label = 1
 
+map <leader>v :Tmux approvals verify<cr>
+map <leader>vy :Tmux y<cr>
+map <leader>vn :Tmux n<cr>
+
 com! FormatXML :%!python3 -c "import xml.dom.minidom, sys; print(xml.dom.minidom.parse(sys.stdin).toprettyxml())"
