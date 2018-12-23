@@ -99,6 +99,12 @@
 	   "at"  '(ansi-term :which-key "open terminal")
 	   ))
 
+;; Org mode global key bindings
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cc" 'org-capture)
+(global-set-key "\C-cb" 'org-switchb)
+
 ;; Match titlebar colour to theme on Emacs >= 26 on OSX
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
