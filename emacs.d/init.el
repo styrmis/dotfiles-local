@@ -109,6 +109,9 @@
 (customize-set-variable 'org-directory "~/org")
 (customize-set-variable 'org-agenda-files (list org-directory))
 
+(setq org-default-notes-file (concat org-directory "/notes.org"))
+(define-key global-map "\C-cc" 'org-capture)
+
 (setq org-modules '(org-habit))
 
 ;; Match titlebar colour to theme on Emacs >= 26 on OSX
