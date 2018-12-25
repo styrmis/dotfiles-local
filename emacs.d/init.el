@@ -133,6 +133,8 @@ If FILEXT is provided, return files with extension FILEXT instead."
 (setq org-agenda-files
       (append (sa-find-org-file-recursively "~/Dropbox/org/" "org")))
 
+(setq org-modules '(org-habit))
+
 ;; Match titlebar colour to theme on Emacs >= 26 on OSX
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
