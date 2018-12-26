@@ -114,6 +114,11 @@
 
 (setq org-modules '(org-habit))
 
+(setq org-refile-targets '((nil :maxlevel . 1)
+			   (org-agenda-files :maxlevel . 1)))
+(setq org-outline-path-complete-in-steps nil)         ; Use helm for completion
+(setq org-refile-use-outline-path t)                  ; Show full paths for refiling
+
 ;; Match titlebar colour to theme on Emacs >= 26 on OSX
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
