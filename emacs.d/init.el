@@ -124,6 +124,8 @@
 	   "wx"  '(delete-window :which-key "delete window")
 	   ;; Others
 	   "at"  '(ansi-term :which-key "open terminal")
+	   "]h"  '(git-gutter:next-hunk :which-key "next hunk")
+	   "[h"  '(git-gutter:previous-hunk :which-key "previous hunk")
 	   ))
 
 ;; Magit global key bindings
