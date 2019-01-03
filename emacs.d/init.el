@@ -25,6 +25,8 @@
 (require 'use-package)
 
 ;; Vim mode
+(setq evil-want-C-u-scroll t)
+
 (use-package evil
   :ensure t
   :init
