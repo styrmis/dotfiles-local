@@ -83,6 +83,9 @@
 (use-package magit
   :ensure t)
 
+(use-package git-gutter
+  :ensure t)
+
 ;; Which Key
 (use-package which-key
   :ensure t
@@ -121,6 +124,8 @@
 ;; Magit global key bindings
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
+
+(global-git-gutter-mode +1)
 
 ;; Org mode global key bindings
 (global-set-key "\C-cl" 'org-store-link)
