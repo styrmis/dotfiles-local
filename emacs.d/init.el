@@ -14,7 +14,8 @@
 (setq package-enable-at-startup nil)
 (setq package-archives '(("org"   . "http://orgmode.org/elpa/")
 			 ("gnu"   . "http://elpa.gnu.org/packages/")
-			 ("melpa" . "https://melpa.org/packages/")))
+			 ("melpa" . "https://melpa.org/packages/")
+			 ("melpa-stable" . "http://stable.melpa.org/packages/")))
 (package-initialize)
 
 ;; Bootstrap `use-package`
