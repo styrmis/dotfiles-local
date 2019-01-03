@@ -80,6 +80,9 @@
   :config
   (helm-mode 1))
 
+(use-package magit
+  :ensure t)
+
 ;; Which Key
 (use-package which-key
   :ensure t
@@ -114,6 +117,10 @@
 	   ;; Others
 	   "at"  '(ansi-term :which-key "open terminal")
 	   ))
+
+;; Magit global key bindings
+(global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
 
 ;; Org mode global key bindings
 (global-set-key "\C-cl" 'org-store-link)
