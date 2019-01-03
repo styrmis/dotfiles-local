@@ -41,6 +41,9 @@
   :config
   (evil-collection-init))
 
+(use-package evil-org
+  :ensure t)
+
 (use-package evil-escape
   :ensure t
   :init
