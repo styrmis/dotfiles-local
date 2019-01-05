@@ -157,12 +157,19 @@
 (setq org-default-notes-file (concat org-directory "/notes.org"))
 (define-key global-map "\C-cc" 'org-capture)
 
+(setq org-capture-templates '(("t" "Todo [inbox]" entry
+			       (file+headline "~/org/inbox.org" "Tasks")
+			       "* TODO %i%?")
+			      ("T" "Tickler" entry
+			       (file+headline "~/org/tickler.org" "Tickler")
+			       "* %i%? \n %U")))
+
 (setq org-modules '(org-habit))
 
 (setq org-refile-targets '((nil :maxlevel . 1)
 			   (org-agenda-files :maxlevel . 1)))
 (setq org-outline-path-complete-in-steps nil)         ; Use helm for completion
-(setq org-refile-use-outline-path t)                  ; Show full paths for refiling
+(setq org-refile-use-outline-path 'file)              ; Show full paths for refiling
 
 (setq org-todo-keywords
       '((sequence "TODO(t)" "NEXT(n)" "STARTED(s!)" "WAIT(w@/!)" "DELEGATED(g@/!)" "|" "DONE(d!)" "CANCELLED(l@)")))
