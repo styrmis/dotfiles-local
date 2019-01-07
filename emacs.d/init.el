@@ -20,6 +20,9 @@
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 
+;; Automatically update buffers when files change on disk
+(global-auto-revert-mode t)
+
 ;; Package configs
 (require 'package)
 (setq package-enable-at-startup nil)
