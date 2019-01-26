@@ -23,6 +23,8 @@
 ;; Automatically update buffers when files change on disk
 (global-auto-revert-mode t)
 
+(define-key key-translation-map (kbd "M-3") (kbd "#"))
+
 ;; Package configs
 (require 'package)
 (setq package-enable-at-startup nil)
