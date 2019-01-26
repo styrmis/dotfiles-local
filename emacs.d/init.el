@@ -187,6 +187,8 @@
 (advice-add 'org-refile :after 'org-save-all-org-buffers)
 (advice-add 'org-archive-subtree :after 'org-save-all-org-buffers)
 
+(setq org-startup-indented t)
+
 ;; Match titlebar colour to theme on Emacs >= 26 on OSX
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
