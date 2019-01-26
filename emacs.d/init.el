@@ -179,6 +179,10 @@
 (setq org-todo-keywords
       '((sequence "TODO(t)" "NEXT(n)" "STARTED(s!)" "WAIT(w@/!)" "DELEGATED(g@/!)" "|" "DONE(d!)" "CANCELLED(l@)")))
 
+(setq org-log-into-drawer t)
+
+(setq org-catch-invisible-edits 'smart)
+
 ;; Match titlebar colour to theme on Emacs >= 26 on OSX
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
