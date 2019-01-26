@@ -183,6 +183,10 @@
 
 (setq org-catch-invisible-edits 'smart)
 
+;; Save all org files after refiling or archiving
+(advice-add 'org-refile :after 'org-save-all-org-buffers)
+(advice-add 'org-archive-subtree :after 'org-save-all-org-buffers)
+
 ;; Match titlebar colour to theme on Emacs >= 26 on OSX
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
