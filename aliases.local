@@ -23,8 +23,9 @@ alias gfpp="git fetch -p && git pull"
 
 alias ggone="git branch -vv | grep ': gone' | cut -c 3- | awk '{ print \$1 }'"
 
-alias grc="git rebase --continue"
 alias grm="git rebase -i master"
+alias grc="git rebase --continue"
+alias gra="git rebase --abort"
 
 # Bundler
 
