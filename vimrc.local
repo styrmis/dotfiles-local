@@ -1,6 +1,8 @@
 set incsearch nohlsearch " do incremental searching without residual highlighting
 set smartcase     " Case insensitive searches, until an uppercase letter is typed
 
+set termguicolors
+
 " Undo highlighting of column 80 added by parent dotfiles
 set colorcolumn=0
 
