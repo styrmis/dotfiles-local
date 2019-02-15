@@ -187,6 +187,13 @@
 (advice-add 'org-refile :after 'org-save-all-org-buffers)
 (advice-add 'org-archive-subtree :after 'org-save-all-org-buffers)
 
+;; Autosave org files on a regular basis, persisting to the visited
+;; file name rather than a separate autosave file
+(add-hook 'org-mode-hook 'my-org-mode-autosave-settings)
+(defun my-org-mode-autosave-settings ()
+  (set (make-local-variable 'auto-save-visited-file-name) t)
+  (setq auto-save-interval 20))
+
 (setq org-startup-indented t)
 
 ;; Match titlebar colour to theme on Emacs >= 26 on OSX
