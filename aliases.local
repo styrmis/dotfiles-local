@@ -27,6 +27,10 @@ alias grm="git rebase -i master"
 alias grc="git rebase --continue"
 alias gra="git rebase --abort"
 
+# RSpec
+
+alias run_all_changed_specs="git diff --name-only master | grep '_spec\.rb' | xargs bin/rspec"
+
 # Bundler
 
 alias be="bundle exec"
