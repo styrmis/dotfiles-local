@@ -41,5 +41,7 @@ alias take_simulator_screenshot="xcrun simctl io booted screenshot"
 # Update Rubygems for all installed Rubies, except system
 alias update_all_rubygems="rbenv versions | grep -v system | while read ver; do rbenv shell $ver; ruby -v; gem update --system; rbenv shell --unset; done"
 
+alias watch_pipeline="watch -c -n 30 'bundle exec thor code_pipeline:status'"
+
 # Include hyperlocal machine-specific aliases
 [[ -f ~/.aliases.local.machine ]] && source ~/.aliases.local.machine
