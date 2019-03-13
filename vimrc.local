@@ -193,4 +193,6 @@ map <leader>v :Tmux approvals verify<cr>
 map <leader>vy :Tmux y<cr>
 map <leader>vn :Tmux n<cr>
 
+map <C-n> :NERDTreeToggle<CR>
+
 com! FormatXML :%!python3 -c "import xml.dom.minidom, sys; print(xml.dom.minidom.parse(sys.stdin).toprettyxml())"

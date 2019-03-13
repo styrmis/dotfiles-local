@@ -52,3 +52,5 @@ Plug 'ap/vim-css-color'
 
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
+
+Plug 'scrooloose/nerdtree'
