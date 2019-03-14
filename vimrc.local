@@ -195,4 +195,6 @@ map <leader>vn :Tmux n<cr>
 
 map <C-n> :NERDTreeToggle<CR>
 
+let g:SuperTabDefaultCompletionType = "<c-n>"
+
 com! FormatXML :%!python3 -c "import xml.dom.minidom, sys; print(xml.dom.minidom.parse(sys.stdin).toprettyxml())"
