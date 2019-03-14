@@ -54,3 +54,5 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
 Plug 'scrooloose/nerdtree'
+
+Plug 'wellle/tmux-complete.vim'
