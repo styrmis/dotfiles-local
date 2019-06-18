@@ -4,6 +4,7 @@ Plug 'jgdavey/tslime.vim'
 
 Plug 'sjl/gundo.vim'
 
+Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-haml'
 
 Plug 'mxw/vim-jsx'
