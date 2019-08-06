@@ -1,5 +1,5 @@
 function this-branch-commits-by-file() {
-  git diff --name-only master..head |
+  git diff --name-only master..head -- $1 |
   while read file_path; do
     echo $file_path
 
