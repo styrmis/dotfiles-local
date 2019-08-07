@@ -148,7 +148,7 @@ draw_bold_text_with_bright_colors: true
 colors:
   # Default colors
   primary:
-    background: '0x111111'
+    background: '0x000000'
     foreground: '0xF8F8F2'
   cursor:
     text: '0xFFFFFF'
