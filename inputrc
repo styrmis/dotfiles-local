@@ -1,0 +1,2 @@
+# Don't keep edits to previous lines
+set revert-all-at-newline on
