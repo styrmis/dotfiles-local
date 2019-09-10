@@ -6,7 +6,11 @@ set termguicolors
 " Undo highlighting of column 80 added by parent dotfiles
 set colorcolumn=0
 
-set cursorline
+augroup BgHighlight
+    autocmd!
+    autocmd WinEnter * set cursorline
+    autocmd WinLeave * set nocursorline
+augroup END
 
 " Shortcut to refer to the directory of the current file
 " From https://www.destroyallsoftware.com/file-navigation-in-vim.html
