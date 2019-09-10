@@ -6,6 +6,8 @@ set termguicolors
 " Undo highlighting of column 80 added by parent dotfiles
 set colorcolumn=0
 
+set cursorline
+
 " Shortcut to refer to the directory of the current file
 " From https://www.destroyallsoftware.com/file-navigation-in-vim.html
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
