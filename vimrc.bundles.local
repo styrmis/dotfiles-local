@@ -35,7 +35,8 @@ Plug 'vim-scripts/greplace.vim'
 
 Plug 'machakann/vim-highlightedyank'
 
-Plug 'mileszs/ack.vim'
+Plug 'rking/ag.vim'
+Plug 'Chun-Yang/vim-action-ag'
 
 Plug 'nvie/vim-flake8'
 
