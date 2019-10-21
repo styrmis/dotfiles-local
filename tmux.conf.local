@@ -2,6 +2,8 @@
 #
 #  * brew install fzf reattach-to-user-namespace
 
+set-option -sa terminal-overrides ',xterm-256color:RGB'
+
 # don't truncate the session name
 set-option -g status-left-length 50
 
