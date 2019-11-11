@@ -154,11 +154,13 @@
 (define-key global-map "\C-cc" 'org-capture)
 
 (setq org-capture-templates '(("t" "Todo [inbox]" entry
-			       (file+headline "~/org/inbox.org" "Tasks")
-			       "* TODO %i%?")
-			      ("T" "Tickler" entry
-			       (file+headline "~/org/tickler.org" "Tickler")
-			       "* %i%? \n %U")))
+             (file+headline "~/Dropbox/org/inbox.org" "Tasks")
+             "* TODO %i%?")
+            ("T" "Tickler" entry
+             (file+headline "~/Dropbox/org/tickler.org" "Tickler")
+             "* %i%? \n %U")
+            ("w" "Weekly Journal" entry (file+olp+datetree "~/Dropbox/org/weekly-journal.org")
+             "* %?" :tree-type week)))
 
 (setq org-modules '(org-habit))
 
