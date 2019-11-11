@@ -122,10 +122,7 @@ nnoremap <leader>= :wincmd =<cr>
 
 " jk in rapid succession will bring you out of insert mode
 inoremap jk <esc>
-inoremap kj <esc>
-
 cnoremap jk <c-c>
-cnoremap kj <c-c>
 
 vnoremap v <esc>
 
