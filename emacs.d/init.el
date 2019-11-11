@@ -11,15 +11,6 @@
 
 (setq backup-directory-alist `(("." . "~/.saves")))
 
-(setq backup-by-copying t
-      delete-old-versions t
-      kept-new-versions 6
-      kept-old-versions 2
-      version-control t)
-
-(setq auto-save-file-name-transforms
-      `((".*" ,temporary-file-directory t)))
-
 ;; Automatically update buffers when files change on disk
 (global-auto-revert-mode t)
 
@@ -186,13 +177,6 @@
 ;; Save all org files after refiling or archiving
 (advice-add 'org-refile :after 'org-save-all-org-buffers)
 (advice-add 'org-archive-subtree :after 'org-save-all-org-buffers)
-
-;; Autosave org files on a regular basis, persisting to the visited
-;; file name rather than a separate autosave file
-(add-hook 'org-mode-hook 'my-org-mode-autosave-settings)
-(defun my-org-mode-autosave-settings ()
-  (set (make-local-variable 'auto-save-visited-file-name) t)
-  (setq auto-save-interval 20))
 
 (setq org-startup-indented t)
 
