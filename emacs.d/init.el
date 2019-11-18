@@ -160,7 +160,10 @@
              (file+headline "~/Dropbox/org/tickler.org" "Tickler")
              "* %i%? \n %U")
             ("w" "Weekly Journal" entry (file+olp+datetree "~/Dropbox/org/weekly-journal.org")
-             "* %?" :tree-type week)))
+             "* %?" :tree-type week)
+            ("m" "Monthly Journal" entry (file+olp+datetree "~/Dropbox/org/monthly-journal.org")
+             "** %?")
+            ))
 
 (setq org-modules '(org-habit))
 
