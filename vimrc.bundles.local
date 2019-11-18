@@ -31,7 +31,7 @@ Plug 'justinmk/vim-sneak'
 Plug 'bronson/vim-trailing-whitespace'
 
 Plug 'haya14busa/incsearch.vim'
-Plug 'vim-scripts/greplace.vim'
+Plug 'yegappan/greplace'
 
 Plug 'machakann/vim-highlightedyank'
 
