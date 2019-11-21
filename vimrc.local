@@ -5,6 +5,8 @@ set termguicolors
 
 " Undo highlighting of column 80 added by parent dotfiles
 set colorcolumn=0
+" Also the insertion of line breaks in insert mode by default
+set textwidth=0
 
 augroup BgHighlight
     autocmd!
