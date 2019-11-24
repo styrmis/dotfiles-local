@@ -223,6 +223,9 @@ Following https://huytd.github.io/emacs-from-scratch.html
 (advice-add 'org-archive-subtree :after 'org-save-all-org-buffers)
 
 (setq org-startup-indented t)
+
+(add-hook 'org-mode-hook '(lambda () (setq fill-column 80)))
+(add-hook 'org-mode-hook 'turn-on-auto-fill)
 #+end_src
 ** Plugins
 #+BEGIN_SRC emacs-lisp
