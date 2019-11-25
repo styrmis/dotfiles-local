@@ -31,7 +31,7 @@ Plug 'justinmk/vim-sneak'
 Plug 'bronson/vim-trailing-whitespace'
 
 Plug 'haya14busa/incsearch.vim'
-Plug 'yegappan/greplace'
+Plug 'styrmis/greplace', { 'branch': 'allow-blank-filename-list' }
 
 Plug 'machakann/vim-highlightedyank'
 
