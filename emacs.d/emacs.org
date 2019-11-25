@@ -242,12 +242,15 @@ Following https://huytd.github.io/emacs-from-scratch.html
 #+end_src
 ** Plugins
 #+BEGIN_SRC emacs-lisp
+  (use-package org-bullets
+    :ensure t
+    :init
+    (add-hook 'org-mode-hook (lambda ()
+      (org-bullets-mode 1))))
 
-(use-package org-bullets
-  :ensure t
-  :init
-  (add-hook 'org-mode-hook (lambda ()
-    (org-bullets-mode 1))))
+  (use-package org-beautify-theme
+    :ensure t
+    :init)
 #+END_SRC
 * The rest
 #+begin_src emacs-lisp
