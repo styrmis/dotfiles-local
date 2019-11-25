@@ -199,7 +199,7 @@ Following https://huytd.github.io/emacs-from-scratch.html
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-switchb)
 
-(customize-set-variable 'org-directory "~/org")
+(customize-set-variable 'org-directory "~/Dropbox/org")
 (customize-set-variable 'org-agenda-files (list org-directory))
 
 (setq org-default-notes-file (concat org-directory "/notes.org"))
