@@ -206,4 +206,6 @@ let g:nv_search_paths = ['~/Dropbox/notes', './notes.md']
 
 nnoremap <silent> <leader>n :NV<CR>
 
+nnoremap <leader>b :Buffers<CR>
+
 com! FormatXML :%!python3 -c "import xml.dom.minidom, sys; print(xml.dom.minidom.parse(sys.stdin).toprettyxml())"
