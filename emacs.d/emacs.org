@@ -219,8 +219,8 @@ Following https://huytd.github.io/emacs-from-scratch.html
 
 (setq org-modules '(org-habit))
 
-(setq org-refile-targets '((nil :maxlevel . 1)
-			   (org-agenda-files :maxlevel . 1)))
+(setq org-refile-targets '((nil :maxlevel . 4)
+			   (org-agenda-files :maxlevel . 4)))
 (setq org-outline-path-complete-in-steps nil)         ; Use helm for completion
 (setq org-refile-use-outline-path 'file)              ; Show full paths for refiling
 
