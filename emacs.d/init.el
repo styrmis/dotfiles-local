@@ -3,6 +3,22 @@
 ;; This file loads Org-mode and then loads the rest of our Emacs initialization from Emacs lisp
 ;; embedded in literate Org-mode files.
 
+;; Package configs
+(require 'package)
+(setq package-enable-at-startup nil)
+(setq package-archives '(("org"   . "http://orgmode.org/elpa/")
+       ("gnu"   . "http://elpa.gnu.org/packages/")
+       ("melpa" . "https://melpa.org/packages/")
+       ("melpa-stable" . "http://stable.melpa.org/packages/")))
+
+(package-initialize)
+
+;; Bootstrap `use-package`
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+(require 'use-package)
+
 ;; Load up Org Mode and (now included) Org Babel for elisp embedded in Org Mode files
 (setq dotfiles-dir (file-name-directory (or (buffer-file-name) load-file-name)))
 
