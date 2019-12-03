@@ -143,6 +143,15 @@ Following https://huytd.github.io/emacs-from-scratch.html
     :ensure t
     :init
     (setq neo-theme (if (display-graphic-p) 'icons 'arrow)))
+
+  (use-package markdown-mode
+    :ensure t)
+
+  (use-package edit-server
+    :ensure t
+    :config
+    (edit-server-start)
+    (add-hook 'edit-server-start-hook 'markdown-mode))
 #+END_SRC
 * Key bindings
 #+begin_src emacs-lisp
