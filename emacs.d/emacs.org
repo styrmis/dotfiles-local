@@ -240,6 +240,9 @@ Following https://huytd.github.io/emacs-from-scratch.html
 #+end_src
 ** Plugins
 #+BEGIN_SRC emacs-lisp
+  (require 'org-install)
+  (setq org-modules '(org-habit))
+  (org-load-modules-maybe t)
 
   (use-package org-bullets
     :ensure t
