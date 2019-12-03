@@ -190,61 +190,62 @@ Following https://huytd.github.io/emacs-from-scratch.html
 * Org-mode
 ** Base configuration
 #+begin_src emacs-lisp
-;; Org mode global key bindings
-(global-set-key "\C-cl" 'org-store-link)
-(global-set-key "\C-ca" 'org-agenda)
-(global-set-key "\C-cc" 'org-capture)
-(global-set-key "\C-cb" 'org-switchb)
+    (use-package org
+      :ensure org-plus-contrib
+      :pin org
+      :bind
+      ("\C-cl" . org-store-link)
+      ("\C-ca" . org-agenda)
+      ("\C-cc" . org-capture)
+      ("\C-cb" . org-switchb)
+      :init
+      (setq org-default-notes-file (concat org-directory "/notes.org")
+	    org-capture-templates '(("t" "Todo [inbox]" entry
+				     (file+headline "~/Dropbox/org/inbox.org" "Tasks")
+				     "* TODO %i%?")
+				    ("T" "Tickler" entry
+				     (file+headline "~/Dropbox/org/tickler.org" "Tickler")
+				     "* %i%? \n %U")
+				    ("w" "Weekly Journal" entry (file+olp+datetree "~/Dropbox/org/weekly-journal.org")
+				     "* %?" :tree-type week)
+				    ("m" "Monthly Journal" entry (file+olp+datetree "~/Dropbox/org/monthly-journal.org")
+				     "** %?")
+				    )
+	    org-refile-targets '((nil :maxlevel . 4)
+				 (org-agenda-files :maxlevel . 4))
+	    org-outline-path-complete-in-steps nil         ; Use helm for completion
+	    org-refile-use-outline-path 'file              ; Show full paths for refiling
 
-(customize-set-variable 'org-directory "~/Dropbox/org")
-(customize-set-variable 'org-agenda-files (list org-directory))
+	    org-todo-keywords
+	    '((sequence "TODO(t)" "NEXT(n)" "STARTED(s!)" "WAIT(w@/!)" "DELEGATED(g@/!)" "|" "DONE(d!)" "CANCELLED(l@)"))
 
-(setq org-default-notes-file (concat org-directory "/notes.org"))
-(define-key global-map "\C-cc" 'org-capture)
+	    org-log-into-drawer t
+	  
+	    org-catch-invisible-edits 'smart
+	    org-startup-indented t
+	    )
 
-(setq org-capture-templates '(("t" "Todo [inbox]" entry
-             (file+headline "~/Dropbox/org/inbox.org" "Tasks")
-             "* TODO %i%?")
-            ("T" "Tickler" entry
-             (file+headline "~/Dropbox/org/tickler.org" "Tickler")
-             "* %i%? \n %U")
-            ("w" "Weekly Journal" entry (file+olp+datetree "~/Dropbox/org/weekly-journal.org")
-             "* %?" :tree-type week)
-            ("m" "Monthly Journal" entry (file+olp+datetree "~/Dropbox/org/monthly-journal.org")
-             "** %?")
-            ))
+      (define-key global-map "\C-cc" 'org-capture)
 
-(setq org-modules '(org-habit))
+      (customize-set-variable 'org-directory "~/Dropbox/org")
+      (customize-set-variable 'org-agenda-files (list org-directory))
 
-(setq org-refile-targets '((nil :maxlevel . 4)
-			   (org-agenda-files :maxlevel . 4)))
-(setq org-outline-path-complete-in-steps nil)         ; Use helm for completion
-(setq org-refile-use-outline-path 'file)              ; Show full paths for refiling
+      :custom
+      ;; Save all org files after refiling or archiving
+      (advice-add 'org-refile :after 'org-save-all-org-buffers)
+      (advice-add 'org-archive-subtree :after 'org-save-all-org-buffers)
 
-(setq org-todo-keywords
-      '((sequence "TODO(t)" "NEXT(n)" "STARTED(s!)" "WAIT(w@/!)" "DELEGATED(g@/!)" "|" "DONE(d!)" "CANCELLED(l@)")))
-
-(setq org-log-into-drawer t)
-
-(setq org-catch-invisible-edits 'smart)
-
-;; Save all org files after refiling or archiving
-(advice-add 'org-refile :after 'org-save-all-org-buffers)
-(advice-add 'org-archive-subtree :after 'org-save-all-org-buffers)
-
-(setq org-startup-indented t)
-
-(add-hook 'org-mode-hook '(lambda () (setq fill-column 80)))
-(add-hook 'org-mode-hook 'turn-on-auto-fill)
+      (add-hook 'org-mode-hook '(lambda () (setq fill-column 80)))
+      (add-hook 'org-mode-hook 'turn-on-auto-fill))
 #+end_src
 ** Plugins
 #+BEGIN_SRC emacs-lisp
 
-(use-package org-bullets
-  :ensure t
-  :init
-  (add-hook 'org-mode-hook (lambda ()
-    (org-bullets-mode 1))))
+  (use-package org-bullets
+    :ensure t
+    :init
+    (add-hook 'org-mode-hook (lambda ()
+      (org-bullets-mode 1))))
 #+END_SRC
 * The rest
 #+begin_src emacs-lisp
