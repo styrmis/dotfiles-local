@@ -110,6 +110,10 @@ Following https://huytd.github.io/emacs-from-scratch.html
     :config
     (helm-mode 1))
 
+  (use-package helm-fuzzy-find
+    :ensure t
+    :init)
+
   (global-set-key (kbd "M-x") 'helm-M-x)
 
   (setq helm-M-x-fuzzy-match t) ;; optional fuzzy matching for helm-M-x
@@ -120,25 +124,25 @@ Following https://huytd.github.io/emacs-from-scratch.html
 #+END_SRC
 *** Rest
 #+BEGIN_SRC emacs-lisp
-(use-package magit
-  :ensure t)
+  (use-package magit
+    :ensure t)
 
-(use-package git-gutter
-  :ensure t)
+  (use-package git-gutter
+    :ensure t)
 
-;; Projectile
-(use-package projectile
-  :ensure t
-  :init
-  (setq projectile-require-project-root nil)
-  :config
-  (projectile-mode 1))
+  ;; Projectile
+  (use-package projectile
+    :ensure t
+    :init
+    (setq projectile-require-project-root nil)
+    :config
+    (projectile-mode 1))
 
-;; NeoTree
-(use-package neotree
-  :ensure t
-  :init
-  (setq neo-theme (if (display-graphic-p) 'icons 'arrow)))
+  ;; NeoTree
+  (use-package neotree
+    :ensure t
+    :init
+    (setq neo-theme (if (display-graphic-p) 'icons 'arrow)))
 #+END_SRC
 * Key bindings
 #+begin_src emacs-lisp
@@ -163,7 +167,8 @@ Following https://huytd.github.io/emacs-from-scratch.html
 	   ;; "/"   '(counsel-rg :which-key "ripgrep") ; You'll need counsel package for this
 	   "TAB" '(switch-to-prev-buffer :which-key "previous buffer")
 	   "SPC" '(helm-M-x :which-key "M-x")
-	   "fed" '(lambda() (interactive)(find-file "~/.emacs.d/init.el"))
+         "f"   '(save-buffer)
+	   "ed"  '(lambda() (interactive)(find-file "~/.emacs.d/init.el"))
 	   "pf"  '(helm-find-files :which-key "find files")
 	   ;; Buffers
 	   "bb"  '(helm-buffers-list :which-key "buffers list")
