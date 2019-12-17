@@ -22,6 +22,7 @@ Following https://huytd.github.io/emacs-from-scratch.html
 * Autosave and file tracking
 #+begin_src emacs-lisp
 (setq backup-directory-alist `(("." . "~/.saves")))
+(setq backup-by-copying t)
 
 ;; Automatically update buffers when files change on disk
 (global-auto-revert-mode t)
