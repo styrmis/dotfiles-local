@@ -57,6 +57,9 @@ let g:tslime_always_current_session=1
 let g:tslime_always_current_window=1
 let g:tmux_panenumber=2
 
+let g:VimuxOrientation = "h"
+let g:VimuxHeight = "40"
+
 " Prompt for a command to run
 map <Leader>vp :VimuxPromptCommand<CR>
 
@@ -68,6 +71,9 @@ map <Leader>vi :VimuxInspectRunner<CR>
 
 " Zoom the tmux runner pane
 map <Leader>vz :VimuxZoomRunner<CR>
+
+" Close vim tmux runner opened by VimuxRunCommand
+map <Leader>vq :VimuxCloseRunner<CR>
 
 " configure syntastic syntax checking to check on open as well as save
 let g:syntastic_check_on_open=1
