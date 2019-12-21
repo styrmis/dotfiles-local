@@ -169,9 +169,6 @@ nnoremap <silent>]<Space> :set paste<CR>m`o<Esc>``:set nopaste<CR>
 
 map y <Plug>(highlightedyank)
 
-" taskwiki configuration
-let g:taskwiki_sort_orders={"D": "description+"}
-
 " Recommended configuration for EditorConfig
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 

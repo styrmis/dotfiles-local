@@ -14,8 +14,6 @@ Plug 'mrkn/vim-cruby'
 
 Plug 'airblade/vim-gitgutter'
 
-Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
-
 Plug 'junegunn/vim-easy-align'
 
 Plug 'styrmis/molokai'
