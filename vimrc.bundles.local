@@ -51,8 +51,6 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'Alok/notational-fzf-vim'
 
-Plug 'scrooloose/nerdtree'
-
 Plug 'wellle/tmux-complete.vim'
 
 Plug 'mrkn/vim-cruby'
