@@ -161,6 +161,9 @@ endfunction
 nmap ]h <Plug>(GitGutterNextHunk)
 nmap [h <Plug>(GitGutterPrevHunk)
 
+nmap <silent> [i <Plug>(ale_previous_wrap)
+nmap <silent> ]i <Plug>(ale_next_wrap)
+
 set updatetime=100
 
 " Set up bindings for adding blank lines before/after current line
