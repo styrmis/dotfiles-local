@@ -69,10 +69,6 @@ map <Leader>vi :VimuxInspectRunner<CR>
 " Zoom the tmux runner pane
 map <Leader>vz :VimuxZoomRunner<CR>
 
-" Run undercover
-nmap <Leader>u :Tmux bundle exec undercover<CR>
-nmap <Leader>um :Tmux bundle exec undercover -c master<CR>
-
 " configure syntastic syntax checking to check on open as well as save
 let g:syntastic_check_on_open=1
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
