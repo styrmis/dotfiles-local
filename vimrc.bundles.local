@@ -1,7 +1,5 @@
 Plug 'craigemery/vim-autotag'
 
-Plug 'jgdavey/tslime.vim'
-
 Plug 'sjl/gundo.vim'
 
 Plug 'tpope/vim-abolish'
