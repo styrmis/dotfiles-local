@@ -40,6 +40,10 @@
 ;; real file, but don't prompt, which is the default
 (setq vc-follow-symlinks t)
 
+(use-package ox-hugo
+  :ensure t
+  :after ox)
+
 ;; load up all literate org-mode files in this directory
 (mapc #'org-babel-load-file (directory-files dotfiles-dir t "\\.org$"))
 
