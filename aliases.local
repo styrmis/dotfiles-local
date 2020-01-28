@@ -12,6 +12,7 @@ alias gcnv="git commit --no-verify"
 
 alias gs="git status"
 alias gb="git branch -vv --sort=committerdate"
+alias gbl="git branch -vv --sort=committerdate | tail -10"
 alias gbd="git branch -d"
 alias gd="git diff"
 alias gdc="git diff --cached"
