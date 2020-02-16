@@ -270,6 +270,13 @@
   (add-hook 'org-mode-hook (lambda ()
 			     (org-bullets-mode 1))))
 
+(use-package deft
+  :bind ("C-c D" . deft)
+  :config (setq deft-directory "~/Dropbox/deft"
+		deft-default-extension "org"
+		deft-use-filter-string-for-filename t
+                deft-extensions '("md" "org")))
+
 ;; Show matching parens
 (setq show-paren-delay 0)
 (show-paren-mode 1)
