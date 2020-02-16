@@ -290,6 +290,22 @@
 		deft-use-filter-string-for-filename t
                 deft-extensions '("md" "org")))
 
+(use-package org-roam
+      :after org
+      :hook 
+      ((org-mode . org-roam-mode)
+       (after-init . org-roam--build-cache-async)
+       )
+      :straight (:host github :repo "jethrokuan/org-roam" :branch "master")
+      :custom
+      (org-roam-directory "~/Dropbox/roam")
+      :bind
+      ("C-c n l" . org-roam)
+      ("C-c n t" . org-roam-today)
+      ("C-c n f" . org-roam-find-file)
+      ("C-c n i" . org-roam-insert)
+      ("C-c n g" . org-roam-show-graph))
+
 ;; Show matching parens
 (setq show-paren-delay 0)
 (show-paren-mode 1)
