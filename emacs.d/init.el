@@ -37,6 +37,8 @@
 ;; real file, but don't prompt, which is the default
 (setq vc-follow-symlinks t)
 
+(setq use-package-always-ensure t)
+
 (use-package ox-hugo
   :ensure t
   :after ox)
