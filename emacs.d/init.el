@@ -293,6 +293,15 @@
   (deft-default-extension "org")
   (deft-directory "~/Dropbox/roam"))
 
+(use-package org-journal
+  :bind
+  ("C-c n j" . org-journal-new-entry)
+  :custom
+  (org-journal-date-prefix "#+TITLE: ")
+  (org-journal-file-format "%Y-%m-%d.org")
+  (org-journal-dir "~/Dropbox/roam")
+  (org-journal-date-format "%A, %d %B %Y"))
+
 (use-package org-roam
       :after org
       :hook 
