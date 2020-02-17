@@ -326,6 +326,9 @@
 (setq show-paren-delay 0)
 (show-paren-mode 1)
 
+;; Bring back easy templates in org-mode, e.g. <s
+(require 'org-tempo)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
