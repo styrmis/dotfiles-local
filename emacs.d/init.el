@@ -284,11 +284,14 @@
 			     (org-bullets-mode 1))))
 
 (use-package deft
-  :bind ("C-c D" . deft)
-  :config (setq deft-directory "~/Dropbox/deft"
-		deft-default-extension "org"
-		deft-use-filter-string-for-filename t
-                deft-extensions '("md" "org")))
+  :after org
+  :bind
+  ("C-c n d" . deft)
+  :custom
+  (deft-recursive t)
+  (deft-use-filter-string-for-filename t)
+  (deft-default-extension "org")
+  (deft-directory "~/Dropbox/roam"))
 
 (use-package org-roam
       :after org
