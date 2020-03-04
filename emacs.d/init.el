@@ -322,6 +322,10 @@
       ("C-c n i" . org-roam-insert)
       ("C-c n g" . org-roam-show-graph))
 
+(use-package org-cliplink
+  :bind
+  ("C-x p i" . org-cliplink))
+
 ;; Show matching parens
 (setq show-paren-delay 0)
 (show-paren-mode 1)
