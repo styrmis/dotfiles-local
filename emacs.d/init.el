@@ -307,20 +307,18 @@
   (org-journal-date-format "%A, %d %B %Y"))
 
 (use-package org-roam
-      :after org
-      :hook 
-      ((org-mode . org-roam-mode)
-       (after-init . org-roam--build-cache-async)
-       )
-      :straight (:host github :repo "jethrokuan/org-roam" :branch "master")
-      :custom
-      (org-roam-directory "~/Dropbox/roam")
-      :bind
-      ("C-c n l" . org-roam)
-      ("C-c n t" . org-roam-today)
-      ("C-c n f" . org-roam-find-file)
-      ("C-c n i" . org-roam-insert)
-      ("C-c n g" . org-roam-show-graph))
+  :after org
+  :hook
+  (after-init . org-roam-mode)
+  :straight (:host github :repo "jethrokuan/org-roam" :branch "master")
+  :custom
+  (org-roam-directory "~/Dropbox/roam")
+  :bind
+  ("C-c n l" . org-roam)
+  ("C-c n t" . org-roam-today)
+  ("C-c n f" . org-roam-find-file)
+  ("C-c n i" . org-roam-insert)
+  ("C-c n g" . org-roam-show-graph))
 
 (use-package org-cliplink
   :bind
