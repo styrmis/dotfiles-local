@@ -5,7 +5,13 @@ Plug 'sjl/gundo.vim'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-haml'
 
-Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
+
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+
+Plug 'yuezk/vim-js'
+Plug 'maxmellon/vim-jsx-pretty'
 
 Plug 'mattn/emmet-vim'
 
