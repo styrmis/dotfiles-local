@@ -1,5 +1,9 @@
 ;; Following https://huytd.github.io/emacs-from-scratch.html
 
+;; Making emacs find latex (so that C-c C-x C-l works on orgmode)
+(setenv "PATH" (concat ":/Library/TeX/texbin/" (getenv "PATH")))
+(add-to-list 'exec-path "/Library/TeX/texbin/")
+
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
