@@ -317,6 +317,7 @@
   :straight (:host github :repo "jethrokuan/org-roam" :branch "master")
   :custom
   (org-roam-directory "~/Dropbox/roam")
+  (org-roam-graph-executable "/usr/local/bin/dot")
   :bind
   ("C-c n l" . org-roam)
   ("C-c n t" . org-roam-today)
