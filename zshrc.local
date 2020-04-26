@@ -26,5 +26,7 @@ autoload -U add-zsh-hook
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
+[[ -f ~/.nix-profile/etc/profile.d/nix.sh ]] && source ~/.nix-profile/etc/profile.d/nix.sh
+
 # Include hyperlocal machine-specific configuration
 [[ -f ~/.zshrc.local.machine ]] && source ~/.zshrc.local.machine
