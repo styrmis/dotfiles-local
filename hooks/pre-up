@@ -31,3 +31,4 @@ brew_upgrade_or_install neovim
 brew_upgrade_or_install rbenv
 brew_upgrade_or_install pyenv
 brew_upgrade_or_install the_silver_searcher
+brew_upgrade_or_install github/gh/gh
