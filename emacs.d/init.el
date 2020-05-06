@@ -318,6 +318,7 @@
   :custom
   (org-roam-directory "~/Dropbox/roam")
   (org-roam-graph-executable "/usr/local/bin/dot")
+  (org-roam-db-location "~/org-roam.db")
   :bind
   ("C-c n l" . org-roam)
   ("C-c n t" . org-roam-today)
