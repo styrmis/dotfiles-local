@@ -28,7 +28,6 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'benmills/vimux'
 
 Plug 'scrooloose/nerdcommenter'
-Plug 'ervandew/supertab'
 Plug 'justinmk/vim-sneak'
 Plug 'bronson/vim-trailing-whitespace'
 
