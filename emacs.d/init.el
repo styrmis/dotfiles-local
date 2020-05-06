@@ -251,7 +251,7 @@
 				 "* %i%? \n %U")
 				("w" "Weekly Journal" entry (file+olp+datetree "~/Dropbox/org/weekly-journal.org")
 				 "* %?" :tree-type week)
-				("m" "Monthly Journal" entry (file+olp+datetree "~/Dropbox/org/monthly-journal.org")
+				("j" "Journal" entry (file+olp+datetree "~/Dropbox/org/journal.org")
 				 "** %?")
 				)
 	org-refile-targets '((nil :maxlevel . 4)
