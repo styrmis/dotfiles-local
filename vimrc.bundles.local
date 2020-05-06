@@ -59,3 +59,5 @@ Plug 'Alok/notational-fzf-vim'
 Plug 'wellle/tmux-complete.vim'
 
 Plug 'mrkn/vim-cruby'
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
