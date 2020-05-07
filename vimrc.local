@@ -52,6 +52,13 @@ let test#ruby#rspec#options = {
   \ 'suite':   '--fail-fast',
 \}
 
+" By default assume that we want to target the current window in the current
+" session for tslime commands, like test runs
+
+let g:tslime_always_current_session=1
+let g:tslime_always_current_window=1
+let g:tmux_panenumber=2
+
 let g:VimuxOrientation = "h"
 let g:VimuxHeight = "40"
 
