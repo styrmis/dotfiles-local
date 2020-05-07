@@ -3,5 +3,7 @@
   "solargraph.completion": true,
   "solargraph.rename": true,
   "solargraph.references": true,
-  "solargraph.diagnostics": true
+  "solargraph.diagnostics": true,
+  "suggest.enablePreview": true,
+  "codeLens.enable": true
 }
