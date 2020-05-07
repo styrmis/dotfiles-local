@@ -3,6 +3,8 @@ set smartcase     " Case insensitive searches, until an uppercase letter is type
 
 set termguicolors
 
+let g:airline_theme='molokai'
+
 " Undo highlighting of column 80 added by parent dotfiles
 set colorcolumn=0
 " Also the insertion of line breaks in insert mode by default
