@@ -3,19 +3,6 @@
 ;; Making emacs find latex (so that C-c C-x C-l works on orgmode)
 (add-to-list 'exec-path "/Library/TeX/texbin/")
 
-(defvar bootstrap-version)
-(let ((bootstrap-file
-       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
-      (bootstrap-version 5))
-  (unless (file-exists-p bootstrap-file)
-    (with-current-buffer
-        (url-retrieve-synchronously
-         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
-         'silent 'inhibit-cookies)
-      (goto-char (point-max))
-      (eval-print-last-sexp)))
-  (load bootstrap-file nil 'nomessage))
-
 ;; Package configs
 (require 'package)
 (setq package-enable-at-startup nil)
@@ -313,7 +300,6 @@
   :after org
   :hook
   (after-init . org-roam-mode)
-  :straight (:host github :repo "jethrokuan/org-roam" :branch "master")
   :custom
   (org-roam-directory "~/Dropbox/roam")
   (org-roam-graph-executable "/usr/local/bin/dot")
