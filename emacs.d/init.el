@@ -46,6 +46,10 @@
 
 (setq use-package-always-ensure t)
 
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((python . t)))
+
 (use-package ox-hugo
   :ensure t
   :after ox)
