@@ -23,22 +23,6 @@
   (setq org-startup-indented t)
   (add-hook 'org-mode-hook #'visual-line-mode))
 
-;; Load up Org Mode and (now included) Org Babel for elisp embedded in Org Mode files
-(setq dotfiles-dir (file-name-directory (or (buffer-file-name) load-file-name)))
-
-(let* ((org-dir (expand-file-name
-		 "lisp" (expand-file-name
-			 "org" (expand-file-name
-				"src" dotfiles-dir))))
-       (org-contrib-dir (expand-file-name
-			 "lisp" (expand-file-name
-				 "contrib" (expand-file-name
-					    ".." org-dir))))
-       (load-path (append (list org-dir org-contrib-dir)
-			  (or load-path nil))))
-  ;; load up Org-mode and Org-babel
-  (require 'org-install)
-  (require 'ob-tangle))
 
 ;; Configure the VC package to echo when we follow a symlink to the
 ;; real file, but don't prompt, which is the default
@@ -53,6 +37,8 @@
 (setq python-shell-completion-native-enable nil)
 
 (setq org-confirm-babel-evaluate nil)
+
+(use-package htmlize)
 
 (use-package ox-hugo
   :ensure t
@@ -227,53 +213,49 @@
 
 (global-git-gutter-mode +1)
 
-(use-package org
-  :ensure org-plus-contrib
-  :pin org
-  :bind
-  ("\C-cl" . org-store-link)
-  ("\C-ca" . org-agenda)
-  ("\C-cc" . org-capture)
-  ("\C-cb" . org-switchb)
-  :init
-  (setq org-default-notes-file (concat org-directory "/notes.org")
-	org-capture-templates '(("t" "Todo [inbox]" entry
-				 (file+headline "~/Dropbox/org/inbox.org" "Tasks")
-				 "* TODO %i%?")
-				("T" "Tickler" entry
-				 (file+headline "~/Dropbox/org/tickler.org" "Tickler")
-				 "* %i%? \n %U")
-				("w" "Weekly Journal" entry (file+olp+datetree "~/Dropbox/org/weekly-journal.org")
-				 "* %?" :tree-type week)
-				("j" "Journal" entry (file+olp+datetree "~/Dropbox/org/journal.org")
-				 "** %?")
-				)
-	org-refile-targets '((nil :maxlevel . 4)
-			     (org-agenda-files :maxlevel . 4))
-	org-outline-path-complete-in-steps nil         ; Use helm for completion
-	org-refile-use-outline-path 'file              ; Show full paths for refiling
+(setq org-default-notes-file (concat org-directory "/notes.org"))
 
-	org-todo-keywords
-	'((sequence "TODO(t)" "NEXT(n)" "STARTED(s!)" "WAIT(w@/!)" "DELEGATED(g@/!)" "|" "DONE(d@/!)" "CANCELLED(l@/!)"))
+(setq org-capture-templates '(("t" "Todo [inbox]" entry
+                                (file+headline "~/Dropbox/org/inbox.org" "Tasks")
+                                "* TODO %i%?")
+                              ("T" "Tickler" entry
+                                (file+headline "~/Dropbox/org/tickler.org" "Tickler")
+                                "* %i%? \n %U")
+                              ("w" "Weekly Journal" entry (file+olp+datetree "~/Dropbox/org/weekly-journal.org")
+                                "* %?" :tree-type week)
+                              ("j" "Journal" entry (file+olp+datetree "~/Dropbox/org/journal.org")
+                                "** %?")
+                              ))
 
-	org-log-into-drawer t
+(setq org-refile-targets '((nil :maxlevel . 4)
+                           (org-agenda-files :maxlevel . 4)))
 
-	org-catch-invisible-edits 'smart
-	org-startup-indented t
-	)
+(setq org-outline-path-complete-in-steps nil)         ; Use helm for completion
+(setq org-refile-use-outline-path 'file)              ; Show full paths for refiling
 
-  (define-key global-map "\C-cc" 'org-capture)
+(setq org-todo-keywords
+      '((sequence "TODO(t)" "NEXT(n)" "STARTED(s!)" "WAIT(w@/!)" "DELEGATED(g@/!)" "|" "DONE(d@/!)" "CANCELLED(l@/!)")))
 
-  (customize-set-variable 'org-directory "~/Dropbox/org")
-  (customize-set-variable 'org-agenda-files (list org-directory))
+(setq org-log-into-drawer t)
 
-  :custom
-  ;; Save all org files after refiling or archiving
-  (advice-add 'org-refile :after 'org-save-all-org-buffers)
-  (advice-add 'org-archive-subtree :after 'org-save-all-org-buffers)
+(setq org-catch-invisible-edits 'smart)
 
-  (add-hook 'org-mode-hook '(lambda () (setq fill-column 80)))
-  (add-hook 'org-mode-hook 'turn-on-auto-fill))
+(setq org-startup-indented t)
+
+(define-key global-map "\C-cc" 'org-capture)
+(define-key global-map "\C-ca" 'org-agenda)
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-cb" 'org-switchb)
+
+(customize-set-variable 'org-directory "~/Dropbox/org")
+(customize-set-variable 'org-agenda-files (list org-directory))
+
+;; Save all org files after refiling or archiving
+(advice-add 'org-refile :after 'org-save-all-org-buffers)
+(advice-add 'org-archive-subtree :after 'org-save-all-org-buffers)
+
+(add-hook 'org-mode-hook '(lambda () (setq fill-column 80)))
+(add-hook 'org-mode-hook 'turn-on-auto-fill)
 
 (require 'org-install)
 (setq org-modules '(org-habit))
@@ -326,9 +308,6 @@
 ;; Show matching parens
 (setq show-paren-delay 0)
 (show-paren-mode 1)
-
-;; Bring back easy templates in org-mode, e.g. <s
-(require 'org-tempo)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
