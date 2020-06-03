@@ -50,6 +50,8 @@
  'org-babel-load-languages
  '((python . t)))
 
+(setq org-confirm-babel-evaluate nil)
+
 (use-package ox-hugo
   :ensure t
   :after ox)
