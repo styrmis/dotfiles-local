@@ -91,11 +91,6 @@ let g:fold_rspec_foldlevel = 3       " sets initial open/closed state of all fol
 let g:fold_rspec_foldcolumn = 4      " shows a 4-character column on the lefthand side of the window displaying the document's fold structure
 let g:fold_rspec_foldminlines = 3    " disables closing of folds containing two lines or fewer
 
-" Two settings to (potentially) aid in keeping the UI responsive, e.g. when
-" scrolling
-set ttyfast
-set lazyredraw
-
 " Use the old vim regex engine (version 1, as opposed to version 2, which was
 " introduced in Vim 7.3.969). The Ruby syntax highlighting is significantly
 " slower with the new regex engine.
