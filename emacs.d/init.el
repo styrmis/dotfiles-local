@@ -188,7 +188,7 @@
 	   ;; "/"   '(counsel-rg :which-key "ripgrep") ; You'll need counsel package for this
 	   "TAB" '(switch-to-prev-buffer :which-key "previous buffer")
 	   "SPC" '(helm-M-x :which-key "M-x")
-	   "f"   '(save-buffer)
+	   "f"   '(lambda() (interactive)(save-buffer))
 	   "ed"  '(lambda() (interactive)(find-file "~/.emacs.d/init.el"))
 	   "pf"  '(helm-find-files :which-key "find files")
 	   ;; Buffers
