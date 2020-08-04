@@ -16,6 +16,9 @@ eval "$(rbenv init -)"
 
 eval "$(pyenv init -)"
 
+# Include binaries installed via e.g. `pip install --user package-name`
+export PATH=$PATH:$HOME/.local/bin
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
