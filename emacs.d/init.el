@@ -148,9 +148,16 @@
 (use-package projectile
   :ensure t
   :init
-  (setq projectile-require-project-root nil)
+  (setq projectile-project-search-path '("~/Workspace"))
   :config
-  (projectile-mode 1))
+  (projectile-mode +1)
+  (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
+
+(use-package helm-projectile
+             :ensure t
+             :config
+             (helm-projectile-on))
 
 ;; NeoTree
 (use-package neotree
