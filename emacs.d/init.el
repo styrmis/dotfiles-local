@@ -247,7 +247,8 @@
 
 (setq org-catch-invisible-edits 'smart)
 
-(setq org-startup-indented t)
+(setq org-startup-indented t
+      org-pretty-entities t)
 
 (define-key global-map "\C-cc" 'org-capture)
 (define-key global-map "\C-ca" 'org-agenda)
