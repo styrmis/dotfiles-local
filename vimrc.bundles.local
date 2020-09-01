@@ -42,6 +42,7 @@ Plug 'rking/ag.vim'
 Plug 'Chun-Yang/vim-action-ag'
 
 Plug 'nvie/vim-flake8'
+Plug 'Vimjas/vim-python-pep8-indent'
 
 " Vim text objects for Ruby blocks
 Plug 'kana/vim-textobj-user'
