@@ -1,7 +1,7 @@
 ;; Following https://huytd.github.io/emacs-from-scratch.html
 
 ;; Making emacs find latex (so that C-c C-x C-l works on orgmode)
-(add-to-list 'exec-path "/Library/TeX/texbin/")
+(setenv "PATH" "$PATH:/Library/TeX/texbin/" t)
 
 ;; Package configs
 (require 'package)
