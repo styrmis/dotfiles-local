@@ -49,7 +49,7 @@
 (tool-bar-mode   -1)
 (tooltip-mode    -1)
 
-(add-to-list 'default-frame-alist '(font . "Source Code Pro-13"))
+(add-to-list 'default-frame-alist '(font . "Source Code Pro-15"))
 (add-to-list 'default-frame-alist '(height . 81))
 (add-to-list 'default-frame-alist '(width . 157))
 
