@@ -307,7 +307,21 @@
   ("C-c n t" . org-roam-today)
   ("C-c n f" . org-roam-find-file)
   ("C-c n i" . org-roam-insert)
-  ("C-c n g" . org-roam-show-graph))
+  ("C-c n g" . org-roam-graph))
+
+(use-package org-ref)
+
+(setq reftex-default-bibliography '("~/Dropbox/bibliography/references.bib"))
+
+(setq org-ref-bibliography-notes "~/Dropbox/bibliography/notes.org"
+      org-ref-default-bibliography '("~/Dropbox/bibliography/references.bib")
+      org-ref-pdf-directory "~/Dropbox/bibliography/bibtex-pdfs/")
+
+(use-package org-roam-bibtex
+  :after org-roam
+  :hook (org-roam-mode . org-roam-bibtex-mode)
+  :bind (:map org-mode-map
+         (("C-c n a" . orb-note-actions))))
 
 (use-package org-cliplink
   :bind
