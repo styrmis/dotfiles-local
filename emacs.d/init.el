@@ -241,7 +241,7 @@
 (setq org-refile-use-outline-path 'file)              ; Show full paths for refiling
 
 (setq org-todo-keywords
-      '((sequence "TODO(t)" "NEXT(n)" "STARTED(s!)" "WAIT(w@/!)" "DELEGATED(g@/!)" "|" "DONE(d@/!)" "CANCELLED(l@/!)")))
+      '((sequence "TODO(t)" "NEXT(n)" "STARTED(s!)" "WAIT(w@/!)" "DELEGATED(g@/!)" "|" "DONE(d@/!)" "CANCELLED(l@/!)" "MIGRATED(m!)")))
 
 (setq org-log-into-drawer t)
 
