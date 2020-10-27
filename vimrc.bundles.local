@@ -67,5 +67,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc-python'
+Plug 'neoclide/coc-solargraph'
+Plug 'neoclide/coc-tsserver'
 
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
