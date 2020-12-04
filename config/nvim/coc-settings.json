@@ -4,6 +4,5 @@
   "solargraph.rename": true,
   "solargraph.references": true,
   "solargraph.diagnostics": true,
-  "suggest.enablePreview": true,
-  "codeLens.enable": false
+  "suggest.enablePreview": true
 }
