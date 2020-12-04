@@ -41,7 +41,21 @@ let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 " Index ctags from any project, including those outside Rails
 map <Leader>ct :!ctags -R .<CR>
 
-let test#strategy = "tslime"
+let g:neoterm_default_mod = ":vertical"
+let g:neoterm_term_per_tab = 1
+let g:neoterm_autoscroll = 1
+
+map <Leader><Leader>t :Ttoggle<CR>
+
+tnoremap <Esc> <C-\><C-n>
+tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
+
+tnoremap <C-h> <C-\><C-N><C-w>h
+tnoremap <C-j> <C-\><C-N><C-w>j
+tnoremap <C-k> <C-\><C-N><C-w>k
+tnoremap <C-l> <C-\><C-N><C-w>l
+
+let test#strategy = "neoterm"
 let g:test#preserve_screen = 1
 
 let test#ruby#rspec#options = {
@@ -115,6 +129,7 @@ nnoremap <leader>= :wincmd =<cr>
 " jk in rapid succession will bring you out of insert mode
 inoremap jk <esc>
 cnoremap jk <c-c>
+tnoremap jk <C-\><C-n>
 
 vnoremap v <esc>
 

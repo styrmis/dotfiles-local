@@ -1,5 +1,7 @@
 Plug 'craigemery/vim-autotag'
 
+Plug 'kassio/neoterm'
+
 Plug 'jgdavey/tslime.vim'
 
 Plug 'sjl/gundo.vim'
