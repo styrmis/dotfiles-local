@@ -365,3 +365,23 @@ endfunction
 autocmd UIEnter * call OnUIEnter(deepcopy(v:event))
 
 au BufEnter github.com_*.txt set filetype=markdown
+
+" firenvim should not take over textarea elements automaticaly, and should
+" only target basic textareas (not e.g. Gmail)
+let g:firenvim_config = {
+    \ 'globalSettings': {
+        \ 'alt': 'all',
+    \  },
+    \ 'localSettings': {
+        \ '.*': {
+            \ 'cmdline': 'neovim',
+            \ 'content': 'text',
+            \ 'priority': 0,
+            \ 'selector': 'textarea',
+            \ 'takeover': 'always',
+        \ },
+    \ }
+\ }
+
+let fc = g:firenvim_config['localSettings']
+let fc['.*'] = { 'takeover': 'never', 'selector': 'textarea' }
