@@ -57,6 +57,7 @@ tnoremap <C-l> <C-\><C-N><C-w>l
 
 " Automatically enter insert mode when switching into a terminal pane
 autocmd BufWinEnter,WinEnter term://* startinsert
+autocmd BufWinLeave,WinLeave term://* stopinsert
 
 let test#strategy = "neoterm"
 let g:test#preserve_screen = 1
