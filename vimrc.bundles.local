@@ -20,7 +20,6 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'mattn/emmet-vim'
 
 Plug 'tpope/vim-dispatch'
-Plug 'mrkn/vim-cruby'
 
 Plug 'airblade/vim-gitgutter'
 
@@ -43,8 +42,6 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'rking/ag.vim'
 Plug 'Chun-Yang/vim-action-ag'
 
-Plug 'nvie/vim-flake8'
-Plug 'Vimjas/vim-python-pep8-indent'
 
 " Vim text objects for Ruby blocks
 Plug 'kana/vim-textobj-user'
@@ -52,25 +49,25 @@ Plug 'nelstrom/vim-textobj-rubyblock'
 
 Plug 'wikitopian/hardmode'
 
-Plug 'editorconfig/editorconfig-vim'
-
 Plug 'ap/vim-css-color'
 
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
-
 Plug 'Alok/notational-fzf-vim'
 
-Plug 'wellle/tmux-complete.vim'
-
-Plug 'mrkn/vim-cruby'
-
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neoclide/coc-python'
-Plug 'neoclide/coc-solargraph'
-Plug 'neoclide/coc-tsserver'
-
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+
+Plug 'neovim/nvim-lspconfig'
+
+" Nice UI for working with LSP
+Plug 'glepnir/lspsaga.nvim'
+
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+
+Plug 'hrsh7th/nvim-compe'
+
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
+Plug 'hoob3rt/lualine.nvim'
