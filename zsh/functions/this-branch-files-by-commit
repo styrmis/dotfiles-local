@@ -1,5 +1,5 @@
 function this-branch-files-by-commit {
-  git rev-list --reverse main..head -- $1 |
+  git rev-list --reverse master..head -- $1 |
   while read sha; do
     git show --no-patch --oneline $sha
     git diff --name-only $sha $sha~

@@ -19,7 +19,7 @@
   aa = add --all
   ctags = !.git/hooks/ctags
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-  tbfc = log main..head --reverse --oneline --name-only
+  tbfc = log master..head --reverse --oneline --name-only
 [include]
   path = ~/.gitidentity.local
 [filter "lfs"]
