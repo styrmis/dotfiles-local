@@ -21,9 +21,6 @@ autoload -U zmv
 
 export PATH=$PATH:/Library/TeX/texbin
 
-# Stop homebrew from updating all packages when packages are specified explicitly
-export HOMEBREW_NO_AUTO_UPDATE=1
-
 . /usr/local/opt/asdf/libexec/asdf.sh
 
 # Include hyperlocal machine-specific configuration
