@@ -11,23 +11,11 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-export PATH="$HOME/.rbenv/bin:/usr/local/bin:$PATH"
-eval "$(rbenv init -)"
-
-eval "$(pyenv init -)"
-
 # Include binaries installed via e.g. `pip install --user package-name`
 export PATH=$PATH:$HOME/.local/bin
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
 # Load the zmv command
 autoload -U zmv
-
-autoload -U add-zsh-hook
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
 
 [[ -f ~/.nix-profile/etc/profile.d/nix.sh ]] && source ~/.nix-profile/etc/profile.d/nix.sh
 
@@ -35,6 +23,8 @@ export PATH=$PATH:/Library/TeX/texbin
 
 # Stop homebrew from updating all packages when packages are specified explicitly
 export HOMEBREW_NO_AUTO_UPDATE=1
+
+. /usr/local/opt/asdf/libexec/asdf.sh
 
 # Include hyperlocal machine-specific configuration
 [[ -f ~/.zshrc.local.machine ]] && source ~/.zshrc.local.machine
