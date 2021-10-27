@@ -43,7 +43,6 @@ require'nvim-treesitter.configs'.setup {
     "javascript",
     "json",
     "python",
-    "ruby",
     "scss",
     "tsx",
     "toml",
