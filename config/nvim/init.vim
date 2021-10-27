@@ -24,41 +24,6 @@ nvim_lsp.solargraph.setup {
   capabilities = capabilities,
 }
 
-
-local saga = require 'lspsaga'
-saga.init_lsp_saga()
-
-local on_attach = function(client, bufnr)
-
-  -- General LSP setting
-  protocol.CompletionItemKind = {
-    '', -- Text
-    '', -- Method
-    '', -- Function
-    '', -- Constructor
-    '', -- Field
-    '', -- Variable
-    '', -- Class
-    'ﰮ', -- Interface
-    '', -- Module
-    '', -- Property
-    '', -- Unit
-    '', -- Value
-    '', -- Enum
-    '', -- Keyword
-    '﬌', -- Snippet
-    '', -- Color
-    '', -- File
-    '', -- Reference
-    '', -- Folder
-    '', -- EnumMember
-    '', -- Constant
-    '', -- Struct
-    '', -- Event
-    'ﬦ', -- Operator
-    '', -- TypeParameter
-  }
-end
 EOF
 
 lua << EOF

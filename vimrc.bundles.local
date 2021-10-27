@@ -59,9 +59,6 @@ Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
 Plug 'neovim/nvim-lspconfig'
 
-" Nice UI for working with LSP
-Plug 'glepnir/lspsaga.nvim'
-
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 
 Plug 'hrsh7th/nvim-compe'
