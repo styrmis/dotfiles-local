@@ -6,8 +6,23 @@ lua << EOF
 -- LSP Setup
 local nvim_lsp = require('lspconfig')
 
-nvim_lsp.tsserver.setup {}
-nvim_lsp.solargraph.setup{}
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+  properties = {
+    'documentation',
+    'detail',
+    'additionalTextEdits',
+  }
+}
+
+nvim_lsp.tsserver.setup {
+  capabilities = capabilities,
+}
+
+nvim_lsp.solargraph.setup {
+  capabilities = capabilities,
+}
 
 
 local saga = require 'lspsaga'
