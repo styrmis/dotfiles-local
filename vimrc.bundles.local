@@ -2,7 +2,7 @@ Plug 'craigemery/vim-autotag'
 
 Plug 'kassio/neoterm'
 
-Plug 'jgdavey/tslime.vim'
+Plug 'jgdavey/tslime.vim', { 'branch': 'main' }
 
 Plug 'sjl/gundo.vim'
 
