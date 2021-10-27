@@ -69,3 +69,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
 Plug 'hoob3rt/lualine.nvim'
+
+" For languages without treesitter support
+Plug 'joukevandermaas/vim-ember-hbs'
+Plug 'kchmck/vim-coffee-script'
