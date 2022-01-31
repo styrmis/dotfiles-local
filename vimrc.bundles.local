@@ -39,9 +39,7 @@ Plug 'styrmis/greplace', { 'branch': 'allow-blank-filename-list' }
 
 Plug 'machakann/vim-highlightedyank'
 
-Plug 'rking/ag.vim'
-Plug 'Chun-Yang/vim-action-ag'
-
+Plug 'mileszs/ack.vim'
 
 " Vim text objects for Ruby blocks
 Plug 'kana/vim-textobj-user'

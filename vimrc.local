@@ -246,4 +246,8 @@ let g:firenvim_config = {
 let fc = g:firenvim_config['localSettings']
 let fc['.*'] = { 'takeover': 'never', 'selector': 'textarea' }
 
+" Don't open first match
+cnoreabbrev Ack Ack!
+nnoremap <Leader>a :Ack!<Space>
+
 set rtp+=/opt/homebrew/opt/fzf
