@@ -44,5 +44,7 @@ alias update_all_rubygems="rbenv versions | grep -v system | while read ver; do 
 
 alias watch_pipeline="watch -c -n 30 'bundle exec thor code_pipeline:status'"
 
+alias k="kubectl"
+
 # Include hyperlocal machine-specific aliases
 [[ -f ~/.aliases.local.machine ]] && source ~/.aliases.local.machine
