@@ -245,3 +245,5 @@ let g:firenvim_config = {
 
 let fc = g:firenvim_config['localSettings']
 let fc['.*'] = { 'takeover': 'never', 'selector': 'textarea' }
+
+set rtp+=/opt/homebrew/opt/fzf
