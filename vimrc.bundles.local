@@ -73,3 +73,5 @@ Plug 'hoob3rt/lualine.nvim'
 " For languages without treesitter support
 Plug 'joukevandermaas/vim-ember-hbs'
 Plug 'kchmck/vim-coffee-script'
+
+Plug 'dense-analysis/ale'

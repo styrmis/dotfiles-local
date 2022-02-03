@@ -209,6 +209,15 @@ nnoremap <leader>b :Buffers<CR>
 
 com! FormatXML :%!python3 -c "import xml.dom.minidom, sys; print(xml.dom.minidom.parse(sys.stdin).toprettyxml())"
 
+let g:ale_fixers = {
+\   'python': [
+\       'autopep8',
+\       'isort',
+\   ],
+\}
+
+let g:ale_fix_on_save = 1
+
 function! s:IsFirenvimActive(event) abort
   if !exists('*nvim_get_chan_info')
     return 0
