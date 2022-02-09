@@ -11,15 +11,15 @@ function brew_upgrade_or_install {
   brew upgrade $1 || brew install $1
 }
 
-brew tap homebrew/cask-fonts
-
-brew cask upgrade font-source-code-pro || brew cask install font-source-code-pro
+brew tap homebrew/cask-fonts # for font-source-code-pro
 
 brew tap d12frosted/emacs-plus
 
 ln -sf /usr/local/opt/emacs-plus/Emacs.app /Applications
 brew services start d12frosted/emacs-plus/emacs-plus
 
+brew_upgrade_or_install svn # for font-source-code-pro
+brew_upgrade_or_install font-source-code-pro
 brew_upgrade_or_install emacs-plus
 brew_upgrade_or_install git
 brew_upgrade_or_install fzf
