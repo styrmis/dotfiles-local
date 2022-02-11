@@ -20,9 +20,12 @@ nvim_lsp.tsserver.setup {
   capabilities = capabilities,
 }
 
+--[[
+-- Commented out due to editor latency issues
 nvim_lsp.solargraph.setup {
   capabilities = capabilities,
 }
+--]]
 
 EOF
 
