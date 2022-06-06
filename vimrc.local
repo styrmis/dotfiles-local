@@ -161,6 +161,8 @@ nmap ga <Plug>(EasyAlign)
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 
 let g:ag_prg="rg --vimgrep"
+set grepprg=rg\ --vimgrep
+set grepformat=%f:%l:%c:%m,%f:%l:%m
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PROMOTE VARIABLE TO RSPEC LET
