@@ -78,3 +78,5 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'udalov/kotlin-vim'
 
 Plug 'dense-analysis/ale'
+
+Plug 'github/copilot.vim'
