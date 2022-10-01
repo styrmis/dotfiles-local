@@ -1,7 +1,7 @@
 [core]
   editor = /usr/local/bin/nvim
   excludesfile = ~/.gitignore
-  pager = /opt/homebrew/opt/git/share/git-core/contrib/diff-highlight/diff-highlight | less
+  pager = /usr/local/opt/git/share/git-core/contrib/diff-highlight/diff-highlight | less
 [init]
   templatedir = ~/.git_template
 [push]
