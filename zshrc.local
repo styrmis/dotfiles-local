@@ -29,5 +29,9 @@ if type "spin" > /dev/null; then
   source <(spin completion)
 fi
 
+for function in ~/.zsh/functions/*; do
+  source $function
+done
+
 # Include hyperlocal machine-specific configuration
 [[ -f ~/.zshrc.local.machine ]] && source ~/.zshrc.local.machine
