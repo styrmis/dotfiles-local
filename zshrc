@@ -29,6 +29,10 @@ _load_settings() {
 }
 _load_settings "$HOME/.zsh/configs"
 
+for function in ~/.zsh/functions/*; do
+  source $function
+done
+
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 
@@ -62,10 +66,6 @@ if type "spin" > /dev/null; then
   autoload -Uz compinit && compinit
   source <(spin completion)
 fi
-
-for function in ~/.zsh/functions/*; do
-  source $function
-done
 
 # Include hyperlocal machine-specific configuration
 [[ -f ~/.zshrc.local.machine ]] && source ~/.zshrc.local.machine
