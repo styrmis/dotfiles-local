@@ -193,3 +193,5 @@ inoremap <silent><expr> <CR>      compe#confirm('<CR>')
 inoremap <silent><expr> <C-e>     compe#close('<C-e>')
 
 set inccommand=split
+
+let g:nv_search_paths = ['./notes.md', './doc/', '~/Dropbox/nv-notes']
