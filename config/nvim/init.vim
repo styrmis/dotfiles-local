@@ -195,3 +195,5 @@ inoremap <silent><expr> <C-e>     compe#close('<C-e>')
 set inccommand=split
 
 let g:nv_search_paths = ['./notes.md', './doc/', '~/Dropbox/nv-notes']
+
+let g:better_whitespace_guicolor='#db0e00'
