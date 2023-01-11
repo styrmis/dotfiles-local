@@ -277,4 +277,4 @@ endfunc
 " Use ys to yank the last SHA for the current line
 " Use yf to form a fixup command
 nmap <leader>ys :call YankLastShaForLine()<CR>
-nmap <leader>yf :Git commit --fixup=<c-r>"
+nmap <leader>yf :Git commit --fixup=<c-r>0
