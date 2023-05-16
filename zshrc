@@ -92,5 +92,3 @@ if [ -f "/Users/styrmis/miniconda3/etc/profile.d/mamba.sh" ]; then
     . "/Users/styrmis/miniconda3/etc/profile.d/mamba.sh"
 fi
 # <<< conda initialize <<<
-
-source /Users/styrmis/src/github.com/Shopify/merlin-projects/cli/.autocomplete.sh
