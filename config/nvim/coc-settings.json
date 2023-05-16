@@ -1,8 +1,0 @@
-{
-  "solargraph.useBundler": false,
-  "solargraph.completion": true,
-  "solargraph.rename": true,
-  "solargraph.references": true,
-  "solargraph.diagnostics": true,
-  "suggest.enablePreview": true
-}
