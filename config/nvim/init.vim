@@ -19,6 +19,10 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 nvim_lsp.tsserver.setup {
   capabilities = capabilities,
 }
+
+nvim_lsp.pyright.setup{
+  capabilities = capabilities,
+}
 EOF
 
 lua << EOF
