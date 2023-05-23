@@ -10,6 +10,7 @@
   "copilot-cmp": { "branch": "master", "commit": "c2cdb3c0f5078b0619055af192295830a7987790" },
   "copilot.lua": { "branch": "master", "commit": "653bbdc44cd569a5fd0617e5a9d3df2b1359e230" },
   "emmet-vim": { "branch": "master", "commit": "def5d57a1ae5afb1b96ebe83c4652d1c03640f4d" },
+  "firenvim": { "branch": "master", "commit": "386239e1b1e6e3884db4da8bb7057709bec3dc51" },
   "fzf": { "branch": "master", "commit": "cf95e44cb4ce6f42a318abba0efa77c7311c87c9" },
   "fzf.vim": { "branch": "master", "commit": "dc71692255b62d1f67dc55c8e51ab1aa467b1d46" },
   "greplace": { "branch": "allow-blank-filename-list", "commit": "f2f15aa2b850bc56959e6d40f317b1c1d0a50c99" },
