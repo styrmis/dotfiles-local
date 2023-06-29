@@ -20,5 +20,7 @@ return {
       filetypes = { 'ruby' },
       root_dir = util.root_pattern('.git'),
     }
+
+    nvim_lsp.kotlin_language_server.setup {}
   end
 }
