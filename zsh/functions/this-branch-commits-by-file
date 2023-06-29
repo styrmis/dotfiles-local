@@ -1,11 +1,11 @@
 function this-branch-commits-by-file() {
-  git diff --name-only main..head -- $1 |
+  git diff --name-only $(git-main-branch)..HEAD -- $1 |
   while read file_path; do
     echo $file_path
 
-    git rev-list --reverse main..head -- $file_path |
+    git rev-list --reverse $(git-main-branch)..HEAD -- $file_path |
     while read sha; do
-      echo $(git rev-list --count main..$sha) ': ' $(git show --oneline --no-patch $sha)
+      echo $(git rev-list --count $(git-main-branch)..$sha) ': ' $(git show --oneline --no-patch $sha)
     done
 
     echo
