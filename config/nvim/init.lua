@@ -437,4 +437,10 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+vim.filetype.add({
+  extension = {
+    ejson = 'json'
+  }
+})
+
 require("lazy").setup("plugins")
