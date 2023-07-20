@@ -1,0 +1,5 @@
+function git-diff-topic() {
+  local main_branch=$(git-main-branch)
+  local current_branch=$(git rev-parse --abbrev-ref HEAD)
+  git diff origin/$current_branch -- $(git diff --name-only $main_branch..$current_branch)
+}
