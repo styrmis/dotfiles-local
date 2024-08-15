@@ -91,7 +91,7 @@ return {
     event = "VeryLazy",
     config = function()
       require("chatgpt").setup({
-        api_key_cmd = "op read op://private/xqv6aprdynfhpbufrglnyllo3u/credential --no-newline",
+        api_key_cmd = "op read op://Private/ejqfnrdajrdx7c46xvdqngcuiy/credential --no-newline",
         yank_register = "+",
         edit_with_instructions = {
           diff = false,
