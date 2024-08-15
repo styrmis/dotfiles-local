@@ -1,8 +1,6 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  build = function()
-    vim.cmd([[:TSUpdate]])
-  end,
+  build = ":TSUpdate",
   config = function()
     require'nvim-treesitter.configs'.setup {
       highlight = {
