@@ -36,6 +36,8 @@ done
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 
+[[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Edit the current command with Esc v
@@ -71,8 +73,6 @@ fi
 [[ -f ~/.zshrc.local.machine ]] && source ~/.zshrc.local.machine
 
 [[ -f /opt/dev/sh/chruby/chruby.sh ]] && { type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; } }
-
-[[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
