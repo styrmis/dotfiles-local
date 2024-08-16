@@ -61,7 +61,7 @@ autoload -U zmv
 
 export PATH=$PATH:/Library/TeX/texbin
 
-[[ -f /usr/local/opt/asdf/libexec/asdf.sh ]] && . /usr/local/opt/asdf/libexec/asdf.sh
+[[ -f "$HOME/.asdf/asdf.sh" ]] && . "$HOME/.asdf/asdf.sh"
 
 if type "spin" > /dev/null; then
   zstyle ':completion:*' use-cache on
