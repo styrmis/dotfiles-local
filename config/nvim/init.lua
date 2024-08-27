@@ -58,6 +58,9 @@ vim.cmd([[
   set shiftround
   set expandtab
 
+  " Set tab settings for JSON files: 2 spaces for tab size and indentation, use spaces instead of tabs
+  autocmd Filetype json setlocal ts=2 sw=2 expandtab
+
   " Display extra whitespace
   set list listchars=tab:»·,trail:·,nbsp:·
 
