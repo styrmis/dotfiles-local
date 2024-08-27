@@ -363,6 +363,9 @@ vim.cmd([[
   \   'typescriptreact': [
   \       'prettier',
   \   ],
+  \   'kotlin': [
+  \       'ktlint',
+  \   ],
   \}
 
   let g:ale_ruby_rubocop_executable = 'bundle'
