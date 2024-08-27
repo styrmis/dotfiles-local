@@ -376,6 +376,7 @@ vim.cmd([[
 
   let g:ale_pattern_options = {
   \ '.rbi$': {'ale_linters': [], 'ale_fixers': []},
+  \ '.py$': {'ale_linters': ['ruff', 'mypy'], 'ale_fixers': ['isort', 'ruff']},
   \}
 
   let g:ale_fix_on_save = 1
