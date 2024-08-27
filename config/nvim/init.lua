@@ -346,7 +346,7 @@ vim.cmd([[
   com! FormatXML :%!python3 -c "import xml.dom.minidom, sys; print(xml.dom.minidom.parse(sys.stdin).toprettyxml())"
 
   let g:ale_fixers = {
-  \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+  \   '*': ['trim_whitespace'],
   \   'python': [
   \       'autopep8',
   \       'isort',
