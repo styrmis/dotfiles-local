@@ -54,6 +54,9 @@ export LANG=en_US.UTF-8
 # Include binaries installed via e.g. `pip install --user package-name`
 export PATH=$PATH:$HOME/.local/bin
 
+# Add Visual Studio Code (code)
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
 # Load the zmv command
 autoload -U zmv
 
