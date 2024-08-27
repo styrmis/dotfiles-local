@@ -350,6 +350,7 @@ vim.cmd([[
   \   'python': [
   \       'autopep8',
   \       'isort',
+  \       'ruff',
   \   ],
   \   'ruby': [
   \       'rubocop',
