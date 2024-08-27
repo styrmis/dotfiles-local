@@ -89,22 +89,3 @@ if [ -d /opt/dev ]; then
   # cloudplatform: add Shopify clusters to your local kubernetes config
   export KUBECONFIG=${KUBECONFIG:+$KUBECONFIG:}/Users/styrmis/.kube/config:/Users/styrmis/.kube/config.shopify.cloudplatform
 fi
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/styrmis/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/styrmis/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/styrmis/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/styrmis/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-
-if [ -f "/Users/styrmis/miniconda3/etc/profile.d/mamba.sh" ]; then
-    . "/Users/styrmis/miniconda3/etc/profile.d/mamba.sh"
-fi
-# <<< conda initialize <<<
