@@ -75,7 +75,20 @@ fi
 # Include hyperlocal machine-specific configuration
 [[ -f ~/.zshrc.local.machine ]] && source ~/.zshrc.local.machine
 
-[[ -f /opt/dev/sh/chruby/chruby.sh ]] && { type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; } }
+if [ -d /opt/dev ]; then
+  [[ -f /opt/dev/sh/chruby/chruby.sh ]] && {
+    type chruby >/dev/null 2>&1 || chruby () {
+      source /opt/dev/sh/chruby/chruby.sh; chruby "$@";
+    }
+  }
+
+  [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
+
+  alias pulls='/Users/styrmis/src/github.com/Shopify/pulls/pulls'
+
+  # cloudplatform: add Shopify clusters to your local kubernetes config
+  export KUBECONFIG=${KUBECONFIG:+$KUBECONFIG:}/Users/styrmis/.kube/config:/Users/styrmis/.kube/config.shopify.cloudplatform
+fi
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
