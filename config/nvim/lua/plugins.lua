@@ -86,6 +86,9 @@ return {
   {
     "jackMort/ChatGPT.nvim",
     event = "VeryLazy",
+    cond = function()
+      return os.getenv("USING_DEV") == nil
+    end,
     config = function()
       require("chatgpt").setup({
         api_key_cmd = "op read op://Private/ejqfnrdajrdx7c46xvdqngcuiy/credential --no-newline",
