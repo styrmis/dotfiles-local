@@ -381,7 +381,7 @@ vim.cmd([[
 
   let g:ale_fix_on_save = 1
 
-  let g:ale_disable_lsp = 1
+  let g:ale_disable_lsp = 0
 
   nmap <silent> [i <Plug>(ale_previous_wrap)
   nmap <silent> ]i <Plug>(ale_next_wrap)
