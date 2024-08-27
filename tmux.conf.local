@@ -80,3 +80,13 @@ bind-key K run-shell 'tmux switch-client -n \; kill-session -t "$(tmux display-m
 
 # Reduce timeout for escape key to avoid delays in vim
 set -g escape-time 10
+
+set -g @tpm_plugins '          \
+  tmux-plugins/tpm             \
+  maxpetretta/tmux-monokai-pro \
+  laktak/extrakto              \
+'
+
+set -g "@extrakto_clip_tool" "pbcopy"
+
+run '~/.tmux/plugins/tpm/tpm'
