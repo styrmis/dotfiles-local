@@ -452,3 +452,35 @@ vim.filetype.add({
 })
 
 require("lazy").setup("plugins")
+
+-- prompt: (string | function) Prompt either as a string or a function which should return a string. The result can use the following placeholders:
+--   $text: Visually selected text
+--   $filetype: File type of the buffer (e.g. javascript)
+--   $input: Additional user input
+--   $register: Value of the unnamed register (yanked text)
+-- replace: true if the selected text shall be replaced with the generated output
+-- extract: Regular expression used to extract the generated result
+-- model: The model to use, e.g. zephyr, default: mistral
+
+require('gen').prompts = {
+    generate = { prompt = "$input", replace = true },
+    chat = { prompt = "$input" },
+    summarize = { prompt = "Summarize the following text:\n$text" },
+    ask = { prompt = "Regarding the following text, $input:\n$text" },
+    change = {
+        prompt = "Change the following text, $input, just output the final text without additional quotes around it:\n$text",
+        replace = true,
+    },
+    ["review-code"] = {
+        prompt = "Review the following code and make concise suggestions:\n```$filetype\n$text\n```",
+    },
+    refactor = {
+        prompt = "Change the following code, $input, just output the final code to replace the following:\n$text",
+        replace = true,
+    },
+    ['add-typing'] = {
+      prompt = "Add typing or type annotations to the following code. Only output the result in format ```$filetype\n...\n```:\n```$filetype\n$text\n```",
+      replace = true,
+      extract = "```$filetype\n(.-)```"
+    }
+}
