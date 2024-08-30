@@ -237,5 +237,45 @@ return {
         no_auto_close = false, -- Never closes the window automatically.
         debug = false -- Prints errors and the command which is run.
     }
-  }
+  },
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    branch = "canary",
+    dependencies = {
+      { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
+      { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
+    },
+    build = "make tiktoken", -- Only on MacOS or Linux
+    opts = {
+      debug = true, -- Enable debugging
+      -- See Configuration section for rest
+    },
+    keys = {
+      {
+        "<leader>ac",
+        "<cmd>CopilotChat<cr>",
+        desc = "CopilotChat",
+      },
+      {
+        "<leader>ab",
+        function()
+          local input = vim.fn.input("Quick Chat: ")
+          if input ~= "" then
+            require("CopilotChat").ask(input, { selection = require("CopilotChat.select").buffer })
+          end
+        end,
+        desc = "CopilotChat - Quick chat",
+      },
+      {
+        "<leader>afd",
+        "<cmd>CopilotChatFixDiagnostic<cr>", -- Get a fix for the diagnostic message under the cursor.
+        desc = "CopilotChat - Fix diagnostic",
+      },
+      {
+        "<leader>ar",
+        "<cmd>CopilotChatReset<cr>", -- Reset chat history and clear buffer.
+        desc = "CopilotChat - Reset chat history and clear buffer",
+      }
+    }
+  },
 }
