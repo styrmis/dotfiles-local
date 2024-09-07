@@ -60,6 +60,8 @@ export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/b
 # Load the zmv command
 autoload -U zmv
 
+export PYTHONBREAKPOINT="ipdb.set_trace"
+
 [[ -f ~/.nix-profile/etc/profile.d/nix.sh ]] && source ~/.nix-profile/etc/profile.d/nix.sh
 
 export PATH=$PATH:/Library/TeX/texbin
