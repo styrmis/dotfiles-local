@@ -424,6 +424,10 @@ vim.cmd([[
   nmap <leader>ys :call YankLastShaForLine()<CR>
   nmap <leader>yf :Git commit --fixup=<c-r>0
 
+  nmap <leader>cc :Git commit<CR>
+  nmap <leader>cn :Git commit --no-verify<CR>
+  nmap <leader>ca :Git commit --amend<CR>
+
   set inccommand=split
 
   let g:projectionist_heuristics = {
