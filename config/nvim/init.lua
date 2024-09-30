@@ -217,6 +217,11 @@ vim.cmd([[
   let test#strategy = "neoterm"
   let g:test#preserve_screen = 1
 
+  " Produce absolute paths for tests to avoid needing to be in the right directory.
+  " :~ produces absolute paths starting with ~, :p produces complete absolute
+  " paths, and :. (the default) produces relative paths.
+  let test#filename_modifier = ':~'
+
   let test#ruby#rspec#options = {
     \ 'nearest': '',
     \ 'file':    '',
