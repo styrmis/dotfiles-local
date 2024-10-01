@@ -20,7 +20,7 @@
   "hardmode": { "branch": "master", "commit": "110513dc9eb3ab5408d242a4b4b7674eadc90828" },
   "kotlin-vim": { "branch": "master", "commit": "53fe045906df8eeb07cb77b078fc93acda6c90b8" },
   "lazy.nvim": { "branch": "main", "commit": "077102c5bfc578693f12377846d427f49bc50076" },
-  "lspsaga.nvim": { "branch": "fix-missing-entry-source-error", "commit": "ed2ed54b2f310326aa44d874821d7896d1514ab7" },
+  "lspsaga.nvim": { "branch": "main", "commit": "e64351d0e6335eadf089aa2b9f17221e54ca10a4" },
   "lualine.nvim": { "branch": "master", "commit": "b431d228b7bbcdaea818bdc3e25b8cdbe861f056" },
   "markdown-preview.nvim": { "branch": "master", "commit": "a923f5fc5ba36a3b17e289dc35dc17f66d0548ee" },
   "molokai": { "branch": "master", "commit": "3c9320a5e1b368a7795c3362ba88e3a44267f531" },

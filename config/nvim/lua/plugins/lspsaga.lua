@@ -1,11 +1,10 @@
 return {
-  "styrmis/lspsaga.nvim",
-  branch = "fix-missing-entry-source-error",
+  "nvimdev/lspsaga.nvim",
   config = function()
     local keymap = vim.keymap.set
     local saga = require('lspsaga')
 
-    saga.init_lsp_saga {
+    saga.setup {
       finder_action_keys = {
         open = {'<CR>', 'o'}, vsplit = 'v',split = 'x',quit = {'q', '<esc>', '<C-g>'},
         scroll_down = '<C-f>',scroll_up = '<C-b>'
@@ -20,7 +19,7 @@ return {
     -- if there is no implement it will hide
     -- when you use action in finder like open vsplit then you can
     -- use <C-t> to jump back
-    keymap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
+    keymap("n", "gh", "<cmd>Lspsaga finder<CR>", { silent = true })
 
     -- Code action
     keymap({"n","v"}, "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true })
