@@ -46,5 +46,8 @@ alias update_all_rubygems="rbenv versions | grep -v system | while read ver; do 
 
 alias watch_pipeline="watch -c -n 30 'bundle exec thor code_pipeline:status'"
 
+alias notes="cd ~/Documents/Notes && zk edit --interactive && cd -"
+alias notesd="cd ~/Documents/Notes"
+
 # Include hyperlocal machine-specific aliases
 [[ -f ~/.aliases.local.machine ]] && source ~/.aliases.local.machine
