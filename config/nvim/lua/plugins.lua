@@ -67,6 +67,47 @@ return {
   "udalov/kotlin-vim", -- Has treesitter support but prefer the plugin
   "dense-analysis/ale",
   {
+    "zk-org/zk-nvim",
+    config = function()
+      require("zk").setup({
+        -- can be "telescope", "fzf", "fzf_lua", "minipick", or "select" (`vim.ui.select`)
+        -- it's recommended to use "telescope", "fzf", "fzf_lua", or "minipick"
+        picker = "fzf",
+
+        lsp = {
+          -- `config` is passed to `vim.lsp.start_client(config)`
+          config = {
+            cmd = { "zk", "lsp" },
+            name = "zk",
+            -- on_attach = ...
+            -- etc, see `:h vim.lsp.start_client()`
+          },
+
+          -- automatically attach buffers in a zk notebook that match the given filetypes
+          auto_attach = {
+            enabled = true,
+            filetypes = { "markdown" },
+          },
+        },
+      })
+
+      local opts = { noremap=true, silent=false }
+
+      -- Create a new note after asking for its title.
+      vim.api.nvim_set_keymap("n", "<leader>zn", "<Cmd>ZkNew { title = vim.fn.input('Title: ') }<CR>", opts)
+
+      -- Open notes.
+      vim.api.nvim_set_keymap("n", "<leader>zo", "<Cmd>ZkNotes { sort = { 'modified' } }<CR>", opts)
+      -- Open notes associated with the selected tags.
+      vim.api.nvim_set_keymap("n", "<leader>zt", "<Cmd>ZkTags<CR>", opts)
+
+      -- Search for the notes matching a given query.
+      vim.api.nvim_set_keymap("n", "<leader>zf", "<Cmd>ZkNotes { sort = { 'modified' }, match = { vim.fn.input('Search: ') } }<CR>", opts)
+      -- Search for the notes matching the current visual selection.
+      vim.api.nvim_set_keymap("v", "<leader>zf", ":'<,'>ZkMatch<CR>", opts)
+    end
+  },
+  {
     'glacambre/firenvim',
 
     -- Not lazy loading, as it stopped working
@@ -82,129 +123,6 @@ return {
         }
       }
     end
-  },
-  {
-    "jackMort/ChatGPT.nvim",
-    event = "VeryLazy",
-    cond = function()
-      return os.getenv("USING_DEV") == nil
-    end,
-    config = function()
-      require("chatgpt").setup({
-        api_key_cmd = "op read op://Private/ejqfnrdajrdx7c46xvdqngcuiy/credential --no-newline",
-        yank_register = "+",
-        edit_with_instructions = {
-          diff = false,
-          keymaps = {
-            accept = "<C-y>",
-            toggle_diff = "<C-d>",
-            toggle_settings = "<C-o>",
-            cycle_windows = "<Tab>",
-            use_output_as_input = "<C-i>",
-          },
-        },
-        chat = {
-          welcome_message = WELCOME_MESSAGE,
-          loading_text = "Loading, please wait ...",
-          question_sign = "", -- 🙂
-          answer_sign = "ﮧ", -- 🤖
-          max_line_length = 120,
-          sessions_window = {
-            border = {
-              style = "rounded",
-              text = {
-                top = " Sessions ",
-              },
-            },
-            win_options = {
-              winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
-            },
-          },
-          keymaps = {
-            close = { "<C-c>" },
-            yank_last = "<C-y>",
-            yank_last_code = "<C-k>",
-            scroll_up = "<C-u>",
-            scroll_down = "<C-d>",
-            toggle_settings = "<C-o>",
-            new_session = "<C-n>",
-            cycle_windows = "<Tab>",
-            select_session = "<Space>",
-            rename_session = "r",
-            delete_session = "d",
-          },
-        },
-        popup_layout = {
-          relative = "editor",
-          position = "50%",
-          size = {
-            height = "80%",
-            width = "80%",
-          },
-        },
-        popup_window = {
-          filetype = "chatgpt",
-          border = {
-            highlight = "FloatBorder",
-            style = "rounded",
-            text = {
-              top = " ChatGPT ",
-            },
-          },
-          win_options = {
-            winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
-          },
-        },
-        popup_input = {
-          prompt = "  ",
-          border = {
-            highlight = "FloatBorder",
-            style = "rounded",
-            text = {
-              top_align = "center",
-              top = " Prompt ",
-            },
-          },
-          win_options = {
-            winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
-          },
-          submit = "<C-g>",
-        },
-        settings_window = {
-          border = {
-            style = "rounded",
-            text = {
-              top = " Settings ",
-            },
-          },
-          win_options = {
-            winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
-          },
-        },
-        openai_params = {
-          model = "gpt-3.5-turbo",
-          frequency_penalty = 0,
-          presence_penalty = 0,
-          max_tokens = 300,
-          temperature = 0,
-          top_p = 1,
-          n = 1,
-        },
-        openai_edit_params = {
-          model = "code-davinci-edit-001",
-          temperature = 0,
-          top_p = 1,
-          n = 1,
-        },
-        actions_paths = {},
-        predefined_chat_gpt_prompts = "https://raw.githubusercontent.com/f/awesome-chatgpt-prompts/main/prompts.csv",
-      })
-    end,
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim"
-    }
   },
   {
     "iamcco/markdown-preview.nvim",
