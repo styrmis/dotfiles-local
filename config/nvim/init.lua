@@ -360,7 +360,6 @@ vim.cmd([[
   let g:ale_fixers = {
   \   '*': ['trim_whitespace'],
   \   'python': [
-  \       'autopep8',
   \       'isort',
   \       'ruff',
   \   ],
