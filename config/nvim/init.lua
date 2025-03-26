@@ -222,6 +222,8 @@ vim.cmd([[
   " paths, and :. (the default) produces relative paths.
   let test#filename_modifier = ':~'
 
+  let test#ruby#bundle_exec = 1
+
   let test#ruby#rspec#options = {
     \ 'nearest': '',
     \ 'file':    '',
