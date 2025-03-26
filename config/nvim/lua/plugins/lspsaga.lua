@@ -13,6 +13,9 @@ return {
         quit = 'q', exec = '<CR>'
       },
       rename_action_quit = {'<esc>', '<C-g>'},
+      symbol_in_winbar = {
+        enable = false,
+      },
     }
 
     -- Lsp finder find the symbol definition implement reference
