@@ -81,9 +81,17 @@ bind-key K run-shell 'tmux switch-client -n \; kill-session -t "$(tmux display-m
 # Reduce timeout for escape key to avoid delays in vim
 set -g escape-time 10
 
+set -g @monokai-show-powerline false
+set -g @monokai-plugins 'next_event time'
+set -g @monokai-git-colors 'blue black'
+set -g @monokai-time-colors 'black white'
+set -g @monokai-refresh-rate 1
+set -g @monokai-show-empty-plugins false
+set -g @monokai-next-event-calendars '87141FBF-4BC3-43B4-8BDC-CBC81D08FF00'
+
 set -g @tpm_plugins '          \
   tmux-plugins/tpm             \
-  maxpetretta/tmux-monokai-pro \
+  styrmis/tmux-monokai-pro     \
   laktak/extrakto              \
 '
 
