@@ -456,6 +456,29 @@ vim.filetype.add({
   }
 })
 
+-- Trigger `autoread` when files changes on disk
+-- https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim/383044#383044
+-- https://vi.stackexchange.com/questions/13692/prevent-focusgained-autocmd-running-in-command-line-editing-mode
+vim.api.nvim_create_autocmd({'FocusGained', 'BufEnter', 'CursorHold', 'CursorHoldI'}, {
+  pattern = '*',
+  command = "if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif",
+})
+
+-- Notification after file change
+-- https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
+vim.api.nvim_create_autocmd({'FileChangedShellPost'}, {
+  pattern = '*',
+  command = "echohl WarningMsg | echo 'File changed on disk. Buffer reloaded.' | echohl None",
+})
+
+vim.keymap.set("n", "<leader>ai", function()
+  vim.cmd("normal! o#AI")
+  vim.cmd("w")
+  vim.cmd("sleep 500m")  -- Pause to allow Aider to pick up the change
+  vim.cmd("normal! dd")
+  vim.cmd("w")
+end, { silent = true })
+
 require("lazy").setup("plugins")
 
 -- prompt: (string | function) Prompt either as a string or a function which should return a string. The result can use the following placeholders:
