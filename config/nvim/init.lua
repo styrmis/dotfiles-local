@@ -132,6 +132,7 @@ vim.cmd([[
   " All files, including those ignored by git can be searched directly using the
   " :Files command
   nnoremap <c-p> :GFiles<cr>
+  nnoremap <c-P> :Files<cr>
 
   " Set spellfile to location that is guaranteed to exist, can be symlinked to
   " Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.
