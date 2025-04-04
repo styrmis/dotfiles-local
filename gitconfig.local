@@ -19,10 +19,5 @@
   diff-main = "!f() { git diff $(git merge-base main $(git rev-parse --abbrev-ref HEAD))..$(git rev-parse --abbrev-ref HEAD); }; f"
 [include]
   path = ~/.gitidentity.local
-[filter "lfs"]
-  clean = git-lfs clean -- %f
-  smudge = git-lfs smudge -- %f
-  process = git-lfs filter-process
-  required = true
 [commit]
   verbose = true
