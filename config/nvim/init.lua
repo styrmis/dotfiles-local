@@ -489,6 +489,14 @@ vim.keymap.set("n", "<leader>ai", function()
   vim.cmd("w")
 end, { silent = true })
 
+vim.cmd([[
+  " <leader>% to copy the current file path to the clipboard
+  nmap <Leader>% :let<Space>@*=@%<CR>
+
+  " <leader>y to copy visual selection to the clipboard
+  vmap <Leader>y "+y
+]])
+
 require("lazy").setup("plugins")
 
 -- prompt: (string | function) Prompt either as a string or a function which should return a string. The result can use the following placeholders:
