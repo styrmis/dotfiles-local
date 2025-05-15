@@ -15,10 +15,9 @@ return {
     }
 
     nvim_lsp.sorbet.setup {
-      cmd = { 'srb', 'tc', '--lsp', '--enable-all-beta-lsp-features' },
+      cmd = { 'srb', 'tc', '--lsp' },
       capabilities = capabilities,
       filetypes = { 'ruby' },
-      root_dir = util.root_pattern('.git'),
     }
 
     nvim_lsp.kotlin_language_server.setup {}
