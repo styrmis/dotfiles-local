@@ -33,12 +33,6 @@ id-length = 4
 # Letter case for the random IDs.
 id-case = "lower"
 
-
-# EXTRA VARIABLES
-[extra]
-author = "Mickaël"
-
-
 # GROUP OVERRIDES
 [group.journal]
 paths = ["journal/weekly", "journal/daily"]
