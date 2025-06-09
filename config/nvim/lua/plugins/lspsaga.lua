@@ -25,7 +25,8 @@ return {
     keymap("n", "gh", "<cmd>Lspsaga finder<CR>", { silent = true })
 
     -- Code action
-    keymap({"n","v"}, "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true })
+    -- Disabled due to lack of use
+    -- keymap({"n","v"}, "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true })
 
     -- Rename
     keymap("n", "gr", "<cmd>Lspsaga rename<CR>", { silent = true })

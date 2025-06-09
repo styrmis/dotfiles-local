@@ -311,9 +311,6 @@ vim.cmd([[
   " Start interactive EasyAlign for a motion/text object (e.g. gaip)
   nmap ga <Plug>(EasyAlign)
 
-  " Toggle hard mode
-  nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
-
   let g:ag_prg="rg --vimgrep"
   set grepprg=rg\ --vimgrep
   set grepformat=%f:%l:%c:%m,%f:%l:%m
@@ -352,50 +349,6 @@ vim.cmd([[
   nnoremap <leader>b :Buffers<CR>
 
   com! FormatXML :%!python3 -c "import xml.dom.minidom, sys; print(xml.dom.minidom.parse(sys.stdin).toprettyxml())"
-
-  let g:ale_linters = {
-  \   'ruby': ['rubocop', 'sorbet'],
-  \}
-
-  let g:ale_fixers = {
-  \   '*': ['trim_whitespace'],
-  \   'python': [
-  \       'isort',
-  \       'black',
-  \   ],
-  \   'ruby': [
-  \       'rubocop',
-  \   ],
-  \   'javascript': [
-  \       'prettier',
-  \   ],
-  \   'javascriptreact': [
-  \       'prettier',
-  \   ],
-  \   'typescript': [
-  \       'prettier',
-  \   ],
-  \   'typescriptreact': [
-  \       'prettier',
-  \   ],
-  \   'kotlin': [
-  \       'ktlint',
-  \   ],
-  \}
-
-  let g:ale_ruby_rubocop_executable = 'bundle'
-
-  let g:ale_pattern_options = {
-  \ '.rbi$': {'ale_linters': [], 'ale_fixers': []},
-  \ '.py$': {'ale_linters': ['ruff', 'mypy'], 'ale_fixers': ['isort', 'black']},
-  \}
-
-  let g:ale_fix_on_save = 1
-
-  let g:ale_disable_lsp = 0
-
-  nmap <silent> [i <Plug>(ale_previous_wrap)
-  nmap <silent> ]i <Plug>(ale_next_wrap)
 
   " LSP Setup
 
@@ -489,6 +442,37 @@ vim.keymap.set("n", "<leader>ai", function()
   vim.cmd("w")
 end, { silent = true })
 
+-- vim-tmux-navigator configuration
+vim.cmd([[
+  " Disable tmux navigator when zooming the Vim pane
+  let g:tmux_navigator_disable_when_zoomed = 1
+
+  " We apply the mappings explicitly to allow for pane switching even when in
+  " insert mode in a terminal pane.
+  "
+  " Mappings taken from [1].
+  "
+  " [1]: https://github.com/christoomey/vim-tmux-navigator/blob/412c474e97468e7934b9c217064025ea7a69e05e/plugin/tmux_navigator.vim#L17
+  let g:tmux_navigator_no_mappings = 1
+
+  nnoremap <silent> <c-h> :<C-U>TmuxNavigateLeft<cr>
+  nnoremap <silent> <c-j> :<C-U>TmuxNavigateDown<cr>
+  nnoremap <silent> <c-k> :<C-U>TmuxNavigateUp<cr>
+  nnoremap <silent> <c-l> :<C-U>TmuxNavigateRight<cr>
+  nnoremap <silent> <c-\> :<C-U>TmuxNavigatePrevious<cr>
+
+  if !empty($TMUX)
+    function! IsFZF()
+      return &ft == 'fzf'
+    endfunction
+
+    tnoremap <expr> <silent> <C-h> IsFZF() ? "\<C-h>" : "\<C-\><C-n>:\<C-U> TmuxNavigateLeft\<cr>"
+    tnoremap <expr> <silent> <C-j> IsFZF() ? "\<C-j>" : "\<C-\><C-n>:\<C-U> TmuxNavigateDown\<cr>"
+    tnoremap <expr> <silent> <C-k> IsFZF() ? "\<C-k>" : "\<C-\><C-n>:\<C-U> TmuxNavigateUp\<cr>"
+    tnoremap <expr> <silent> <C-l> IsFZF() ? "\<C-l>" : "\<C-\><C-n>:\<C-U> TmuxNavigateRight\<cr>"
+  endif
+]])
+
 vim.cmd([[
   " <leader>% to copy the current file path to the clipboard
   nmap <Leader>% :let<Space>@*=@%<CR>
@@ -498,35 +482,3 @@ vim.cmd([[
 ]])
 
 require("lazy").setup("plugins")
-
--- prompt: (string | function) Prompt either as a string or a function which should return a string. The result can use the following placeholders:
---   $text: Visually selected text
---   $filetype: File type of the buffer (e.g. javascript)
---   $input: Additional user input
---   $register: Value of the unnamed register (yanked text)
--- replace: true if the selected text shall be replaced with the generated output
--- extract: Regular expression used to extract the generated result
--- model: The model to use, e.g. zephyr, default: mistral
-
-require('gen').prompts = {
-    generate = { prompt = "$input", replace = true },
-    chat = { prompt = "$input" },
-    summarize = { prompt = "Summarize the following text:\n$text" },
-    ask = { prompt = "Regarding the following text, $input:\n$text" },
-    change = {
-        prompt = "Change the following text, $input, just output the final text without additional quotes around it:\n$text",
-        replace = true,
-    },
-    ["review-code"] = {
-        prompt = "Review the following code and make concise suggestions:\n```$filetype\n$text\n```",
-    },
-    refactor = {
-        prompt = "Change the following code, $input, just output the final code to replace the following:\n$text",
-        replace = true,
-    },
-    ['add-typing'] = {
-      prompt = "Add typing or type annotations to the following code. Only output the result in format ```$filetype\n...\n```:\n```$filetype\n$text\n```",
-      replace = true,
-      extract = "```$filetype\n(.-)```"
-    }
-}
