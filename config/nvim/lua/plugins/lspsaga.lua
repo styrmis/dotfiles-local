@@ -5,12 +5,17 @@ return {
     local saga = require('lspsaga')
 
     saga.setup {
-      finder_action_keys = {
-        open = {'<CR>', 'o'}, vsplit = 'v',split = 'x',quit = {'q', '<esc>', '<C-g>'},
-        scroll_down = '<C-f>',scroll_up = '<C-b>'
+      finder = {
+        keys = {
+          open = {'<CR>', 'o'},
+          vsplit = 'v',
+          split = 'x',
+          quit = {'q', '<esc>', '<C-g>'},
+        }
       },
       code_action_keys = {
-        quit = 'q', exec = '<CR>'
+        quit = 'q',
+        exec = '<CR>'
       },
       rename_action_quit = {'<esc>', '<C-g>'},
       symbol_in_winbar = {
