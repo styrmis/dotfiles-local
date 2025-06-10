@@ -25,7 +25,6 @@ return {
   "jparise/vim-graphql",
   "mattn/emmet-vim",
   "tpope/vim-dispatch",
-  "airblade/vim-gitgutter",
   "junegunn/vim-easy-align",
   {
     "christoomey/vim-tmux-navigator"
@@ -48,12 +47,6 @@ return {
   },
   "junegunn/fzf.vim",
   "nvim-lua/plenary.nvim",
-  "hrsh7th/cmp-nvim-lsp",
-  "hrsh7th/cmp-buffer",
-  "hrsh7th/cmp-path",
-  "hrsh7th/cmp-cmdline",
-  "hrsh7th/cmp-vsnip",
-  "petertriho/cmp-git",
   {
     'glacambre/firenvim',
 

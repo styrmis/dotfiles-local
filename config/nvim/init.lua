@@ -1,8 +1,8 @@
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 vim.cmd([[
   set encoding=utf-8
-
-  " Leader
-  let mapleader = " "
 
   set backspace=2   " Backspace deletes like most programs in insert mode
   set nobackup
@@ -329,10 +329,6 @@ vim.cmd([[
   :command! PromoteToLet :call PromoteToLet()
   :map <leader>p :PromoteToLet<cr><Paste>
 
-  " Configure custom shortcuts for moving between git hunks
-  nmap ]h <Plug>(GitGutterNextHunk)
-  nmap [h <Plug>(GitGutterPrevHunk)
-
   set updatetime=100
 
   " Set up bindings for adding blank lines before/after current line
@@ -399,19 +395,6 @@ vim.cmd([[
   \   "engines/deep_understanding/test/*_test.rb": {"alternate": "engines/deep_understanding/app/{}.rb"}
   \ }
 ]])
-
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
-end
-vim.opt.rtp:prepend(lazypath)
 
 vim.filetype.add({
   extension = {
@@ -481,4 +464,4 @@ vim.cmd([[
   vmap <Leader>y "+y
 ]])
 
-require("lazy").setup("plugins")
+require("config.lazy")
