@@ -464,4 +464,8 @@ vim.cmd([[
   vmap <Leader>y "+y
 ]])
 
+require("utils/bigquery").setup({
+  prefix = "<leader>bq",
+})
+
 require("config.lazy")
