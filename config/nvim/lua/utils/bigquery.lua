@@ -28,25 +28,57 @@ function M.to_markdown()
 
   -- Get the lines
   local lines = vim.api.nvim_buf_get_lines(0, start_line - 1, end_line, false)
-  local result = {}
 
-  -- Process header
-  if #lines > 0 then
-    local header = vim.split(lines[1], '\t', {plain = true})
-    table.insert(result, '| ' .. table.concat(header, ' | ') .. ' |')
-
-    -- Create separator line
-    local separator = '|'
-    for _ = 1, #header do
-      separator = separator .. ' --- |'
-    end
-    table.insert(result, separator)
+  if #lines == 0 then
+    return
   end
 
-  -- Process data rows
-  for i = 2, #lines do
-    local cols = vim.split(lines[i], '\t', {plain = true})
-    table.insert(result, '| ' .. table.concat(cols, ' | ') .. ' |')
+  -- First pass: collect all rows with backticks and calculate max widths
+  local rows = {}
+  local max_widths = {}
+
+  for line_idx, line in ipairs(lines) do
+    local cols = vim.split(line, '\t', {plain = true})
+    rows[line_idx] = {}
+
+    for col_idx, col in ipairs(cols) do
+      -- Wrap each cell in backticks
+      local cell = '`' .. col .. '`'
+      rows[line_idx][col_idx] = cell
+
+      -- Track maximum width for this column
+      max_widths[col_idx] = math.max(max_widths[col_idx] or 0, #cell)
+    end
+  end
+
+  -- Second pass: build the formatted table
+  local result = {}
+
+  -- Header row (first row)
+  if rows[1] then
+    local header_parts = {}
+    for col_idx, cell in ipairs(rows[1]) do
+      local padded = cell .. string.rep(' ', max_widths[col_idx] - #cell)
+      table.insert(header_parts, padded)
+    end
+    table.insert(result, '| ' .. table.concat(header_parts, ' | ') .. ' |')
+
+    -- Separator row
+    local sep_parts = {}
+    for col_idx = 1, #max_widths do
+      table.insert(sep_parts, string.rep('-', max_widths[col_idx]))
+    end
+    table.insert(result, '| ' .. table.concat(sep_parts, ' | ') .. ' |')
+  end
+
+  -- Data rows (remaining rows)
+  for row_idx = 2, #rows do
+    local row_parts = {}
+    for col_idx, cell in ipairs(rows[row_idx]) do
+      local padded = cell .. string.rep(' ', max_widths[col_idx] - #cell)
+      table.insert(row_parts, padded)
+    end
+    table.insert(result, '| ' .. table.concat(row_parts, ' | ') .. ' |')
   end
 
   -- Replace the lines with the markdown table
