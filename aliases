@@ -30,6 +30,8 @@ alias grmcp='git rebase --show-current-patch'
 alias grc="git rebase --continue"
 alias gra="git rebase --abort"
 
+alias mosu="gt modify && gt submit"
+
 # RSpec
 
 alias run_all_changed_specs="git diff --name-only $(git-main-branch) | grep '_spec\.rb' | xargs bin/rspec"

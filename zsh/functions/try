@@ -1,0 +1,9 @@
+try() {
+  local out
+  out=$(/usr/bin/env ruby '/Users/styrmis/.local/try.rb' exec --path '/Users/styrmis/src/tries' "$@" 2>/dev/tty)
+  if [ $? -eq 0 ]; then
+    eval "$out"
+  else
+    echo "$out"
+  fi
+}

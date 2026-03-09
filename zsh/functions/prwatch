@@ -1,0 +1,15 @@
+prwatch() {
+  if [ -z "$1" ]; then
+    echo "Usage: prwatch <pr-number>"
+    return 1
+  fi
+
+  # Get the PR URL
+  pr_url=$(gh pr view "$1" --json url -q .url)
+
+  if gh pr checks --watch "$1"; then
+    terminal-notifier -title "✅ PR $1 Success" -message "All checks passed" -sound Glass -open "$pr_url"
+  else
+    terminal-notifier -title "❌ PR $1 Failed" -message "Some checks failed" -sound Basso -open "$pr_url"
+  fi
+}

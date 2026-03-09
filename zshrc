@@ -36,7 +36,10 @@ done
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 
-[[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
+export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
+
+# To apply the command to CTRL-T as well
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -98,3 +101,14 @@ fi
 [[ -f ~/.config/op/plugins.sh ]] && source ~/.config/op/plugins.sh
 
 export ZK_NOTEBOOK_DIR="/Users/styrmis/Documents/Notes"
+
+export MAX_MCP_OUTPUT_TOKENS=35000
+
+export PATH="$PATH:/Users/styrmis/src/tries/2026-01-30-buildkite-smart-retries/bin"
+
+[[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
+
+# Added by tec agent
+[[ -x /Users/styrmis/.local/state/tec/profiles/base/current/global/init ]] && eval "$(/Users/styrmis/.local/state/tec/profiles/base/current/global/init zsh)"
+
+export PATH="/Users/styrmis/.local/bin:$PATH"
