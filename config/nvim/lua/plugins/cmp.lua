@@ -4,8 +4,12 @@ return {
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-cmdline",
-    "hrsh7th/cmp-vsnip",
+    "hrsh7th/cmp-nvim-lsp",
     "petertriho/cmp-git",
+    "ray-x/cmp-treesitter",
+    "L3MON4D3/LuaSnip",
+    "saadparwaiz1/cmp_luasnip",
+    "rafamadriz/friendly-snippets",
   },
   config = function()
     local cmp = require'cmp'
@@ -15,7 +19,7 @@ return {
     cmp.setup({
       snippet = {
         expand = function(args)
-          vim.fn["vsnip#anonymous"](args.body)
+          require('luasnip').lsp_expand(args.body)
         end,
       },
       window = {
@@ -62,9 +66,11 @@ return {
       sources = cmp.config.sources({
         { name = 'copilot' },
         { name = 'nvim_lsp' },
-        { name = 'vsnip' },
+        { name = 'luasnip' },
+        { name = 'treesitter' },
       }, {
-        { name = 'buffer' },
+        { name = 'path' },
+        { name = 'buffer', keyword_length = 3 },
       })
     })
 
@@ -73,6 +79,19 @@ return {
       sources = cmp.config.sources({
         { name = 'git' },
         { name = 'buffer' },
+      })
+    })
+
+    -- Ruby-specific configuration
+    cmp.setup.filetype('ruby', {
+      sources = cmp.config.sources({
+        { name = 'copilot' },
+        { name = 'nvim_lsp' },
+        { name = 'luasnip' },
+        { name = 'treesitter' },
+        { name = 'path' }, -- Useful for require/require_relative
+      }, {
+        { name = 'buffer', keyword_length = 2 },
       })
     })
 
