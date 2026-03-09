@@ -13,6 +13,9 @@ return {
           quit = {'q', '<esc>', '<C-g>'},
         }
       },
+      ui = {
+        code_action = '',
+      },
       code_action_keys = {
         quit = 'q',
         exec = '<CR>'

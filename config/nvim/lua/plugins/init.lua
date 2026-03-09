@@ -76,7 +76,11 @@ return {
 
       vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost", "InsertLeave", "TextChanged" }, {
         callback = function()
-          lint.try_lint()
+          local linters = lint.linters_by_ft[vim.bo.filetype] or {}
+          local available = vim.tbl_filter(function(name)
+            return vim.fn.executable(name) == 1
+          end, linters)
+          lint.try_lint(available)
         end
       })
     end
@@ -90,6 +94,8 @@ return {
         formatters_by_ft = {
           python = { "ruff_format" },
           ruby = { "rubocop" },
+          typescript = { "prettier" },
+          typescriptreact = { "prettier" },
         },
         format_on_save = {
           timeout_ms = 500,
@@ -150,18 +156,23 @@ return {
   },
   {
     "coder/claudecode.nvim",
+    -- dir = "~/src/github.com/styrmis/claudecode.nvim",
     opts = {
+      terminal_cmd = "/Users/styrmis/.claude/local/claude",
       terminal = {
         split_side = "right",
         split_width_percentage = 0.5,
         provider = "native", -- or "snacks"
-      }
+      },
     },
     config = true,
     keys = {
       { "<leader>cc", "<cmd>ClaudeCode<cr>", desc = "Toggle Claude" },
       { "<leader>cs", "<cmd>ClaudeCodeSend<cr>", mode = "v", desc = "Send to Claude" },
       { "<leader>cf", "<cmd>ClaudeCodeAdd %<cr>", desc = "Add file to Claude context" },
+      -- Diff management
+      { "<leader>aa", "<cmd>ClaudeCodeDiffAccept<cr>", desc = "Accept diff" },
+      { "<leader>ad", "<cmd>ClaudeCodeDiffDeny<cr>", desc = "Deny diff" },
     },
   }
 }

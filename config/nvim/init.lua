@@ -1,6 +1,8 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+vim.opt.signcolumn = "yes"
+
 vim.cmd([[
   set encoding=utf-8
 
@@ -102,7 +104,7 @@ vim.cmd([[
   nnoremap <silent> <Leader>t :TestFile<CR>
   nnoremap <silent> <Leader>s :TestNearest<CR>
   nnoremap <silent> <Leader>l :TestLast<CR>
-  nnoremap <silent> <Leader>a :TestSuite<CR>
+  " nnoremap <silent> <Leader>a :TestSuite<CR>
   nnoremap <silent> <Leader>gt :TestVisit<CR>
 
   " Run commands that require an interactive shell
